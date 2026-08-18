@@ -1,4 +1,6 @@
 ---
+import { withBase } from "@/utils/paths.js";
+
 const year = new Date().getFullYear();
 ---
 
@@ -13,16 +15,16 @@ const year = new Date().getFullYear();
     <div class="space-y-4">
       <h2 class="text-xs font-medium uppercase tracking-widest">Consultas</h2>
       <ul class="space-y-2 text-sm">
-        <li><a href="/about#studio" class="text-faded transition-colors hover:text-ink">Encargo a medida</a></li>
-        <li><a href="/about#studio" class="text-faded transition-colors hover:text-ink">Portal profesional</a></li>
-        <li><a href="/about#studio" class="text-faded transition-colors hover:text-ink">Visitas al taller</a></li>
+        <li><a href={withBase("/about#studio")} class="text-faded transition-colors hover:text-ink">Encargo a medida</a></li>
+        <li><a href={withBase("/about#studio")} class="text-faded transition-colors hover:text-ink">Portal profesional</a></li>
+        <li><a href={withBase("/about#studio")} class="text-faded transition-colors hover:text-ink">Visitas al taller</a></li>
       </ul>
     </div>
     <div class="space-y-4">
       <h2 class="text-xs font-medium uppercase tracking-widest">Síguenos</h2>
       <ul class="space-y-2 text-sm">
         <li><a href="https://www.instagram.com/" class="text-faded transition-colors hover:text-ink">Instagram</a></li>
-        <li><a href="/about" class="text-faded transition-colors hover:text-ink">Diario</a></li>
+        <li><a href={withBase("/about")} class="text-faded transition-colors hover:text-ink">Diario</a></li>
       </ul>
     </div>
   </div>

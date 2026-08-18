@@ -3,6 +3,7 @@ import { Image } from "astro:assets";
 import ProductCard from "@/components/ProductCard.astro";
 import BaseLayout from "@/layouts/BaseLayout.astro";
 import { formatPrice, getProducts } from "@/data/products.js";
+import { withBase } from "@/utils/paths.js";
 
 const products = await getProducts();
 const featured = ["pieza-01", "pieza-02", "pieza-03"]
@@ -115,7 +116,7 @@ import ImagenFondo from "@/assets/fondorepisa.jpg";
             </p>
             <div class="flex items-center gap-6 pt-2">
               <a
-                href="/catalog"
+                href={withBase("/catalog")}
                 class="group inline-flex items-center gap-3 rounded-full bg-ink px-7 py-4 text-[11px] font-medium uppercase tracking-[0.2em] text-[var(--color-base)] transition-colors hover:bg-accent"
               >
                 Ver el catálogo
@@ -125,7 +126,7 @@ import ImagenFondo from "@/assets/fondorepisa.jpg";
                 >
               </a>
               <a
-                href="/about"
+                href={withBase("/about")}
                 class="text-[11px] uppercase tracking-[0.2em] md:text-feded text-faded-accent transition-colors hover:text-ink"
               >
                 Nuestro taller →
@@ -157,7 +158,7 @@ import ImagenFondo from "@/assets/fondorepisa.jpg";
           </h2>
         </div>
         <a
-          href="/catalog"
+          href={withBase("/catalog")}
           class="hidden items-center gap-2 whitespace-nowrap text-[11px] uppercase tracking-[0.2em] text-faded transition-colors hover:text-ink md:inline-flex"
         >
           Ver todas
@@ -170,12 +171,12 @@ import ImagenFondo from "@/assets/fondorepisa.jpg";
       </div>
 
       <div class="mt-10 flex justify-center md:hidden">
-        <a
-          href="/catalog"
-          class="inline-flex items-center gap-2 text-[11px] uppercase tracking-[0.2em] md:text-feded text-faded-accent transition-colors hover:text-ink"
-        >
-          Ver el catálogo completo →
-        </a>
+          <a
+            href={withBase("/catalog")}
+            class="inline-flex items-center gap-2 text-[11px] uppercase tracking-[0.2em] md:text-feded text-faded-accent transition-colors hover:text-ink"
+          >
+            Ver el catálogo completo →
+          </a>
       </div>
     </section>
 
@@ -184,7 +185,7 @@ import ImagenFondo from "@/assets/fondorepisa.jpg";
         <div class="grid items-center gap-10 md:grid-cols-12 md:gap-16">
           <div class="md:col-span-7 lg:col-span-8">
             <a
-              href={`/products/${solo.slug}`}
+              href={withBase(`/products/${solo.slug}`)}
               class="group block overflow-hidden rounded-[min(1vw,16px)] bg-paper"
             >
               <Image
@@ -228,7 +229,7 @@ import ImagenFondo from "@/assets/fondorepisa.jpg";
               <dd class="tabular-nums">{formatPrice(solo.price)}</dd>
             </dl>
             <a
-              href={`/products/${solo.slug}`}
+              href={withBase(`/products/${solo.slug}`)}
               class="inline-flex items-center gap-3 rounded-full bg-ink px-6 py-3.5 text-[11px] font-medium uppercase tracking-[0.2em] text-[var(--color-base)] transition-colors hover:bg-accent"
             >
               Ver la pieza →

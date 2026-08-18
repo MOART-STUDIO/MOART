@@ -3,6 +3,7 @@ import { Image } from "astro:assets";
 import ProductCard from "@/components/ProductCard.astro";
 import BaseLayout from "@/layouts/BaseLayout.astro";
 import { formatPrice, getProducts, getRelated } from "@/data/products.js";
+import { withBase } from "@/utils/paths.js";
 
 export async function getStaticPaths() {
   const products = await getProducts();
@@ -24,7 +25,7 @@ const productUrl = new URL(`/products/${product.slug}`, Astro.site ?? Astro.url.
   <main id="main-content">
   <div class="mx-auto max-w-screen-xl px-6 pt-8">
     <nav class="flex gap-2 text-xs uppercase tracking-widest text-faded" aria-label="Breadcrumb">
-      <a href="/catalog" class="hover:text-ink">Catálogo</a>
+      <a href={withBase("/catalog")} class="hover:text-ink">Catálogo</a>
       <span aria-hidden="true">/</span>
       <span class="text-ink" aria-current="page">{product.name}</span>
     </nav>
@@ -116,7 +117,7 @@ const productUrl = new URL(`/products/${product.slug}`, Astro.site ?? Astro.url.
     <section class="mt-40 space-y-12 border-t border-line pt-16">
       <div class="flex items-end justify-between gap-6">
         <h2 class="font-serif text-3xl md:text-4xl">Piezas que conviven bien juntas</h2>
-        <a href="/catalog" class="text-xs uppercase tracking-widest underline underline-offset-4 hover:text-accent">
+        <a href={withBase("/catalog")} class="text-xs uppercase tracking-widest underline underline-offset-4 hover:text-accent">
           Ver todas
         </a>
       </div>

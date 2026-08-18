@@ -1,6 +1,7 @@
 ---
 import { Image } from "astro:assets";
 import { formatPrice, getProduct, getProducts } from "@/data/products.js";
+import { withBase } from "@/utils/paths.js";
 import Logo from "@/assets/MOART-LOGO-provisional.svg"
 
 const { currentPath = "/" } = Astro.props;
@@ -21,14 +22,14 @@ const featuredProduct = (await getProduct("pieza-01")) ?? (await getProducts())[
 
 <nav class="sticky top-0 z-50 border-b border-line bg-base/80 backdrop-blur-md" aria-label="Main navigation">
   <div class="mx-auto flex h-16 max-w-screen-xl items-center justify-between px-6">
-    <a href="/" class="font-serif text-xl italic tracking-tight" aria-label="Inicio de MOART">
+    <a href={withBase("/")} class="font-serif text-xl italic tracking-tight" aria-label="Inicio de MOART">
       <Image src={Logo} alt="test" class="w-25"/>
     </a>
     <div class="hidden items-center gap-8 text-sm md:flex">
       {
         navItems.map((item) => (
-          <a
-            href={item.href}
+                <a
+                  href={withBase(item.href)}
             class:list={[
               "transition-colors hover:text-accent",
               isActive(item.href) ? "text-ink" : "text-faded",
@@ -42,7 +43,7 @@ const featuredProduct = (await getProduct("pieza-01")) ?? (await getProducts())[
     </div>
     <div class="flex items-center gap-3">
       <a
-        href="/cart"
+        href={withBase("/cart")}
         data-cart-label
         aria-label="Cart, 0 items"
         class="relative inline-flex items-center gap-1.5 p-1 text-sm font-medium transition-colors hover:text-accent"
@@ -92,7 +93,7 @@ const featuredProduct = (await getProduct("pieza-01")) ?? (await getProducts())[
 >
     <div class="flex h-full flex-col px-6 pb-6 pt-5">
       <div class="flex h-11 items-center justify-between">
-        <a href="/" class="font-serif text-xl italic tracking-tight" aria-label="Inicio de MOART" data-mobile-menu-link>
+        <a href={withBase("/")} class="font-serif text-xl italic tracking-tight" aria-label="Inicio de MOART" data-mobile-menu-link>
           MOART
         </a>
         <button
@@ -121,10 +122,10 @@ const featuredProduct = (await getProduct("pieza-01")) ?? (await getProducts())[
         <div class="space-y-2.5">
           {
             navItems.map((item) => (
-              <a
-                href={item.href}
-                class:list={[
-                  "block font-serif text-4xl leading-none transition-colors hover:text-accent",
+                <a
+                  href={withBase(item.href)}
+                  class:list={[
+                    "block font-serif text-4xl leading-none transition-colors hover:text-accent",
                   isActive(item.href) ? "text-ink" : "text-faded",
                 ]}
                 aria-current={isActive(item.href) ? "page" : undefined}
@@ -135,7 +136,7 @@ const featuredProduct = (await getProduct("pieza-01")) ?? (await getProducts())[
             ))
           }
           <a
-            href="/cart"
+            href={withBase("/cart")}
             data-cart-label
             aria-label="Cart, 0 items"
             class="inline-flex items-center gap-2 pt-1 text-sm uppercase tracking-[0.2em] text-faded transition-colors hover:text-ink"
@@ -147,7 +148,7 @@ const featuredProduct = (await getProduct("pieza-01")) ?? (await getProducts())[
         </div>
 
         <a
-          href={`/products/${featuredProduct.slug}`}
+          href={withBase(`/products/${featuredProduct.slug}`)}
           class="group block border-y border-line py-4"
           data-mobile-menu-link
         >

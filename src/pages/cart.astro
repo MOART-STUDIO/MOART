@@ -2,6 +2,7 @@
 import { Image } from "astro:assets";
 import BaseLayout from "@/layouts/BaseLayout.astro";
 import { formatPrice, getProducts, productForJson } from "@/data/products.js";
+import { withBase } from "@/utils/paths.js";
 
 const products = await getProducts();
 const cartProducts = products.map(productForJson);
@@ -31,7 +32,7 @@ const cartProducts = products.map(productForJson);
           Aún no has añadido ninguna pieza. El catálogo es pequeño, sereno y está esperando.
         </p>
         <a
-          href="/catalog"
+          href={withBase("/catalog")}
           class="inline-block rounded-full bg-ink px-6 py-3 text-xs uppercase tracking-widest text-[var(--color-base)] transition-colors hover:bg-accent"
         >
           Ver el catálogo
@@ -175,13 +176,13 @@ const cartProducts = products.map(productForJson);
       products.map((product) => (
         <template data-product-template={product.slug}>
           <li class="flex gap-6 py-8" data-cart-row={product.slug}>
-            <a href={`/products/${product.slug}`} class="block size-28 shrink-0 overflow-hidden rounded-[min(1vw,12px)] bg-paper md:size-32">
+            <a href={withBase(`/products/${product.slug}`)} class="block size-28 shrink-0 overflow-hidden rounded-[min(1vw,12px)] bg-paper md:size-32">
               <Image src={product.images[0]} alt={product.name} width={320} height={320} format="webp" loading="eager" class="h-full w-full object-cover" />
             </a>
             <div class="flex min-w-0 flex-1 flex-col justify-between">
               <div class="flex justify-between gap-4">
                 <div class="min-w-0 space-y-1">
-                  <a href={`/products/${product.slug}`} class="block font-serif text-2xl transition-colors hover:text-accent">
+                  <a href={withBase(`/products/${product.slug}`)} class="block font-serif text-2xl transition-colors hover:text-accent">
                     {product.name}
                   </a>
                   <p class="text-xs text-faded">{product.material} · {product.finish}</p>

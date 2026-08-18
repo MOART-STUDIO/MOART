@@ -1,5 +1,6 @@
 ---
 import BaseLayout from "@/layouts/BaseLayout.astro";
+import { withBase } from "@/utils/paths.js";
 ---
 
 <BaseLayout title="Página no encontrada — MOART" description="La página que buscas no existe o se ha movido." noindex={true} includeHeader={false} includeFooter={false}>
@@ -10,7 +11,7 @@ import BaseLayout from "@/layouts/BaseLayout.astro";
       <p class="mt-2 text-sm text-faded">La página que buscas no existe o se ha movido.</p>
       <div class="mt-6">
         <a
-          href="/catalog"
+          href={withBase("/catalog")}
           class="inline-flex items-center justify-center rounded-full bg-ink px-5 py-3 text-xs uppercase tracking-widest text-[var(--color-base)] transition-colors hover:bg-accent"
         >
           Volver al catálogo

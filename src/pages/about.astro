@@ -1,6 +1,7 @@
 ---
 import { Image } from "astro:assets";
 import BaseLayout from "@/layouts/BaseLayout.astro";
+import { withBase } from "@/utils/paths.js";
 import handsImg from "@/assets/moart-manos.jpg";
 import workshopImg from "@/assets/moart-taller.jpg";
 ---
@@ -143,7 +144,7 @@ import workshopImg from "@/assets/moart-taller.jpg";
       </div>
       <div class="flex flex-col gap-4 sm:flex-row md:col-span-5 md:justify-end">
         <a
-          href="/catalog"
+          href={withBase("/catalog")}
           class="inline-flex items-center justify-center gap-3 rounded-full bg-ink px-7 py-4 text-[11px] font-medium uppercase tracking-[0.2em] text-[var(--color-base)] transition-colors hover:bg-accent"
         >
           Ver el catálogo →

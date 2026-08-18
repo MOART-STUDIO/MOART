@@ -1,11 +1,12 @@
 ---
 import { Image } from "astro:assets";
 import { formatPrice } from "@/data/products.js";
+import { withBase } from "@/utils/paths.js";
 
 const { product, eager = false } = Astro.props;
 ---
 
-<a href={`/products/${product.slug}`} class="group block space-y-4" data-product-card>
+<a href={withBase(`/products/${product.slug}`)} class="group block space-y-4" data-product-card>
   <div class="aspect-[4/5] overflow-hidden rounded-[min(1vw,12px)] bg-paper">
     <Image
       src={product.images[0]}
