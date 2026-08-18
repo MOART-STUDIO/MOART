@@ -1,0 +1,381 @@
+---
+import { Image } from "astro:assets";
+import ProductCard from "@/components/ProductCard.astro";
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import { formatPrice, getProducts } from "@/data/products.js";
+
+const products = await getProducts();
+const featured = ["pieza-01", "pieza-02", "pieza-03"]
+  .map((slug) => products.find((product) => product.slug === slug))
+  .filter(Boolean);
+const solo =
+  products.find((product) => product.slug === "pieza-04") ?? products[0];
+import ImagenFondo from "@/assets/fondorepisa.jpg";
+---
+
+<BaseLayout
+  title="MOART — Arte de autor en marmolina"
+  description="Catálogo de esculturas en marmolina: figuras, navidad y relieves moldeados y pulidos a mano. Piezas únicas hechas por encargo en Colombia."
+>
+  <main id="main-content">
+    <h1 class="sr-only">MOART — esculturas de autor en marmolina</h1>
+    <section class="relative overflow-hidden bg-base">
+      <!-- <div class="md:hidden">
+        <div class="aspect-[4/3] w-full">
+          
+          <Image
+            src={ImagenFondo}
+            alt="Escultura MOART en marmolina"
+            width={2240}
+            height={1024}
+            loading="eager"
+            decoding="sync"
+            class="h-full w-full object-cover object-right"
+          />
+        </div>
+        <div class="space-y-6 px-6 py-12">
+          <p
+            class="flex items-center gap-3 text-[11px] uppercase tracking-[0.3em] text-faded"
+          >
+            <span class="inline-block h-px w-8 bg-ink/40"></span>
+            Colombia · Desde 2021
+          </p>
+          <p class="text-balance font-serif text-4xl leading-[0.95]">
+            Arte de
+            <br />
+            <span class="italic text-accent">marmolina en Medellín.</span>
+          </p>
+          <p class="max-w-[48ch] text-pretty leading-relaxed text-faded">
+            Un catálogo sereno de figuras en marmolina, moldeados con detalle y
+            pulidos con calma para trascender el espacio que los habita.
+          </p>
+          <div
+            class="flex flex-col items-start gap-4 pt-2 sm:flex-row sm:items-center"
+          >
+            <a
+              href="/catalog"
+              class="inline-flex items-center gap-2 text-[11px] uppercase tracking-[0.2em] text-faded transition-colors hover:text-ink"
+            >
+              Ver todo el catálogo →
+            </a>
+            <a
+              href="/about"
+              class="text-[11px] uppercase tracking-[0.2em] text-faded transition-colors hover:text-ink"
+            >
+              Nuestro taller →
+            </a>
+          </div>
+        </div>
+      </div> -->
+
+      <div class="relative h-[88vh] min-h-160 w-full">
+        <!-- Imagen de fondo para escritorio -->
+        <Image
+          src={ImagenFondo}
+          alt="Escultura MOART en marmolina"
+          loading="eager"
+          decoding="sync"
+          class="absolute h-full md:inset-0 w-full md:object-center object-[65%_center] object-cover md:opacity-100 opacity-50"
+        />
+        <!-- Imagen de fondo para escritorio -->
+        <div
+          aria-hidden="true"
+          class="absolute inset-0"
+          style="background: linear-gradient(90deg, var(--color-base) 0%, var(--color-base) 30%, color-mix(in oklab, var(--color-base) 55%, transparent) 45%, color-mix(in oklab, var(--color-base) 5%, transparent) 65%, transparent 80%)"
+        >
+        </div>
+        <div
+          aria-hidden="true"
+          class="absolute inset-x-0 bottom-0 h-40"
+          style="background: linear-gradient(180deg, transparent, var(--color-base))"
+        >
+        </div>
+        <div
+          class="relative mx-auto flex h-full max-w-screen-xl items-center px-6"
+        >
+          <div class="max-w-[480px] space-y-8">
+            <p
+              class="flex items-center gap-3 text-[11px] uppercase tracking-[0.3em] md:text-feded text-faded-accent"
+            >
+              <span class="inline-block h-px w-8 bg-ink/40"></span>
+              Colombia · Desde 2021
+            </p>
+            <p
+              class="text-balance font-serif text-5xl leading-[0.95] lg:text-6xl"
+            >
+              Arte de
+              <br />
+              <span class="italic text-accent">marmolina en Medellín.</span>
+            </p>
+            <p
+              class="max-w-[48ch] text-pretty leading-relaxed md:text-feded text-faded-accent md:text-lg"
+            >
+              Un catálogo sereno de figuras en marmolina, moldeados con detalle
+              y pulidos con calma para trascender el espacio que los habita.
+            </p>
+            <div class="flex items-center gap-6 pt-2">
+              <a
+                href="/catalog"
+                class="group inline-flex items-center gap-3 rounded-full bg-ink px-7 py-4 text-[11px] font-medium uppercase tracking-[0.2em] text-[var(--color-base)] transition-colors hover:bg-accent"
+              >
+                Ver el catálogo
+                <span
+                  aria-hidden="true"
+                  class="transition-transform group-hover:translate-x-1">→</span
+                >
+              </a>
+              <a
+                href="/about"
+                class="text-[11px] uppercase tracking-[0.2em] md:text-feded text-faded-accent transition-colors hover:text-ink"
+              >
+                Nuestro taller →
+              </a>
+            </div>
+          </div>
+        </div>
+        <div
+          class="absolute bottom-10 right-10 hidden flex-col items-end gap-1 text-[10px] uppercase tracking-[0.3em] text-ink/70 md:flex"
+        >
+          <span>No. 04 — Roca</span>
+          <span class="text-faded">Marmolina · 2025</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="mx-auto max-w-screen-xl px-6 pt-24 md:pt-32">
+      <div
+        class="mb-12 flex items-end justify-between gap-6 border-t border-line pt-10"
+      >
+        <div>
+          <p class="mb-4 text-[11px] uppercase tracking-[0.3em] text-faded">
+            Ahora en el taller
+          </p>
+          <h2 class="max-w-[20ch] text-balance font-serif text-3xl md:text-5xl">
+            Algunas piezas, <span class="italic text-accent"
+              >cerca de estar listas.</span
+            >
+          </h2>
+        </div>
+        <a
+          href="/catalog"
+          class="hidden items-center gap-2 whitespace-nowrap text-[11px] uppercase tracking-[0.2em] text-faded transition-colors hover:text-ink md:inline-flex"
+        >
+          Ver todas
+          <span aria-hidden="true">→</span>
+        </a>
+      </div>
+
+      <div class="grid grid-cols-1 gap-x-8 gap-y-12 md:grid-cols-3">
+        {featured.map((product) => <ProductCard product={product} />)}
+      </div>
+
+      <div class="mt-10 flex justify-center md:hidden">
+        <a
+          href="/catalog"
+          class="inline-flex items-center gap-2 text-[11px] uppercase tracking-[0.2em] md:text-feded text-faded-accent transition-colors hover:text-ink"
+        >
+          Ver el catálogo completo →
+        </a>
+      </div>
+    </section>
+
+    <section class="mt-32 md:mt-48">
+      <div class="mx-auto max-w-screen-2xl px-6">
+        <div class="grid items-center gap-10 md:grid-cols-12 md:gap-16">
+          <div class="md:col-span-7 lg:col-span-8">
+            <a
+              href={`/products/${solo.slug}`}
+              class="group block overflow-hidden rounded-[min(1vw,16px)] bg-paper"
+            >
+              <Image
+                src={solo.images[0]}
+                alt={`${solo.name} — ${solo.shortDescription}`}
+                width={1600}
+                height={1100}
+                loading="lazy"
+                format="webp"
+                class="h-full w-full object-contain transition-transform duration-[1400ms] ease-out group-hover:scale-[1.02]"
+              />
+            </a>
+          </div>
+          <div class="space-y-6 md:col-span-5 lg:col-span-4">
+            <p
+              class="flex items-center gap-3 text-[11px] uppercase tracking-[0.3em] text-faded"
+            >
+              <span class="inline-block h-px w-8 bg-ink/40"></span>
+              La pieza
+            </p>
+            <h2
+              class="text-balance font-serif text-4xl leading-[1.02] md:text-5xl"
+            >
+              Hecha a mano. <span class="italic text-accent">Por encargo.</span>
+            </h2>
+            <p class="text-pretty leading-relaxed text-faded">
+              {solo.description}
+            </p>
+            <dl
+              class="grid grid-cols-2 gap-x-6 gap-y-3 border-t border-line pt-2 text-xs"
+            >
+              <dt class="pt-3 uppercase tracking-[0.2em] text-faded">
+                Dimensiones
+              </dt>
+              <dd class="pt-3">{solo.dimensions}</dd>
+              <dt class="uppercase tracking-[0.2em] text-faded">Acabado</dt>
+              <dd>{solo.finish}</dd>
+              <dt class="uppercase tracking-[0.2em] text-faded">Plazo</dt>
+              <dd>{solo.leadTime}</dd>
+              <dt class="uppercase tracking-[0.2em] text-faded">Desde</dt>
+              <dd class="tabular-nums">{formatPrice(solo.price)}</dd>
+            </dl>
+            <a
+              href={`/products/${solo.slug}`}
+              class="inline-flex items-center gap-3 rounded-full bg-ink px-6 py-3.5 text-[11px] font-medium uppercase tracking-[0.2em] text-[var(--color-base)] transition-colors hover:bg-accent"
+            >
+              Ver la pieza →
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="mx-auto mt-32 max-w-screen-xl px-6 md:mt-48">
+      <div class="border-t border-line pt-12">
+        <p class="mb-4 text-[11px] uppercase tracking-[0.3em] text-faded">
+          Una sola materia
+        </p>
+        <h2
+          class="mb-12 max-w-[22ch] text-balance font-serif text-3xl md:text-5xl"
+        >
+          Llevamos años trabajando <span class="italic text-accent"
+            >la marmolina</span
+          >.
+        </h2>
+        <div class="grid gap-x-8 gap-y-10 md:grid-cols-3">
+          {
+            [
+              {
+                name: "Marmolina blanca",
+                tag: "Pura · luminosa",
+                copy: "Marmolina de carga mineral clara, sin pigmentos. Mate y serena, deja que la luz recorra cada curva.",
+              },
+              {
+                name: "Marmolina tonalizada",
+                tag: "Cálida · profunda",
+                copy: "Una reserva pequeña con óxidos naturales. Usada solo donde el volumen lo pide, para dar peso a la pieza.",
+              },
+              {
+                name: "Marmolina y base",
+                tag: "Sólida · anclada",
+                copy: "Piezas que descansan sobre una base de madera noble. La materia decide la forma, no al revés.",
+              },
+            ].map((material) => (
+              <div class="space-y-3 pt-2">
+                <p class="text-[10px] uppercase tracking-[0.3em] text-faded">
+                  {material.tag}
+                </p>
+                <h3 class="font-serif text-2xl">{material.name}</h3>
+                <p class="text-sm leading-relaxed text-faded">
+                  {material.copy}
+                </p>
+              </div>
+            ))
+          }
+        </div>
+      </div>
+    </section>
+
+    <section class="mx-auto mt-32 max-w-screen-xl px-6 md:mt-48">
+      <div class="border-t border-line pt-12">
+        <div class="mx-auto max-w-xl space-y-6 text-center">
+          <p class="text-[11px] uppercase tracking-[0.3em] text-faded">
+            Mantente informado
+          </p>
+          <h2 class="text-balance font-serif text-3xl md:text-5xl">
+            Nuevas piezas, <span class="italic text-accent"
+              >un correo cada vez.</span
+            >
+          </h2>
+          <p class="mx-auto max-w-[52ch] text-sm leading-relaxed text-faded">
+            Trabajamos con calma. Cuando una pieza está lista — o abrimos el
+            taller a nuevos encargos — enviamos una breve nota.
+          </p>
+
+          <form class="space-y-3 pt-4 text-left" data-newsletter-form>
+            <div class="flex flex-col gap-3 sm:flex-row">
+              <label class="sr-only" for="first-name">Nombre</label>
+              <input
+                id="first-name"
+                name="firstName"
+                type="text"
+                required
+                maxlength="80"
+                placeholder="Nombre"
+                class="flex-1 rounded-full bg-paper px-5 py-4 text-sm text-ink placeholder:text-faded/60 focus:outline-none focus:ring-1 focus:ring-ink disabled:opacity-50"
+              />
+              <label class="sr-only" for="email">Correo electrónico</label>
+              <input
+                id="email"
+                name="email"
+                type="email"
+                required
+                placeholder="tu@correo.com"
+                class="flex-1 rounded-full bg-paper px-5 py-4 text-sm text-ink placeholder:text-faded/60 focus:outline-none focus:ring-1 focus:ring-ink disabled:opacity-50"
+              />
+            </div>
+            <button
+              type="submit"
+              class="inline-flex w-full items-center justify-center gap-2 rounded-full bg-ink px-7 py-4 text-[11px] font-medium uppercase tracking-[0.2em] text-[var(--color-base)] transition-colors hover:bg-accent disabled:opacity-50"
+              data-newsletter-button
+            >
+              Avísame
+            </button>
+            <p
+              class="hidden pt-2 text-center text-sm text-accent"
+              data-newsletter-success
+              aria-live="polite"
+            >
+              Estás en la lista. Te avisaremos.
+            </p>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <script
+      is:inline
+      type="application/ld+json"
+      set:html={JSON.stringify({
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        name: "MOART",
+        url: Astro.site?.href ?? "https://moart.example/",
+        slogan: "Arte de autor en marmolina",
+        address: {
+          "@type": "PostalAddress",
+          addressRegion: "Colombia",
+          addressCountry: "ES",
+        },
+      })}
+    />
+
+    <script is:inline>
+      const form = document.querySelector("[data-newsletter-form]");
+      if (form) {
+        const button = form.querySelector("[data-newsletter-button]");
+        const success = form.querySelector("[data-newsletter-success]");
+
+        form.addEventListener("submit", (event) => {
+          event.preventDefault();
+          button.disabled = true;
+          button.textContent = "Guardando...";
+          window.setTimeout(() => {
+            form.reset();
+            button.disabled = false;
+            button.textContent = "Avísame";
+            success.classList.remove("hidden");
+          }, 450);
+        });
+      }
+    </script>
+  </main>
+</BaseLayout>

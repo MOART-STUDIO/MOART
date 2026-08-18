@@ -1,0 +1,161 @@
+---
+import { Image } from "astro:assets";
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import handsImg from "@/assets/moart-manos.jpg";
+import workshopImg from "@/assets/moart-taller.jpg";
+---
+
+<BaseLayout
+  title="Nosotros — MOART"
+  description="Un pequeño taller en España que crea esculturas de marmolina a mano. Lentas, firmadas y pensadas para durar generaciones."
+  image={workshopImg}
+>
+  <main id="main-content">
+  <section class="mx-auto max-w-screen-xl px-6 pb-16 pt-20 md:pb-24 md:pt-28">
+    <p class="mb-6 flex items-center gap-3 text-[11px] uppercase tracking-[0.3em] text-faded">
+      <span class="inline-block h-px w-8 bg-ink/40"></span>
+      Sobre el estudio
+    </p>
+    <h1 class="max-w-[18ch] text-balance font-serif text-5xl leading-[0.95] md:text-7xl">
+      Un pequeño taller, <span class="italic text-accent">hecho con calma.</span>
+    </h1>
+    <p class="mt-8 max-w-[58ch] text-lg leading-relaxed text-faded">
+      MOART es un estudio de dos personas en España. Diseñamos y moldeamos un pequeño catálogo de esculturas en marmolina — a mano, por encargo. Sin fábrica, sin prisas, sin atajos.
+    </p>
+  </section>
+
+  <section class="relative w-full">
+    <Image
+      src={workshopImg}
+      alt="Taller soleado de escultura en marmolina con herramientas manuales y una pieza a medio terminar"
+      width={1920}
+      height={1080}
+      format="webp"
+      loading="eager"
+      class="h-[50vh] w-full object-cover md:h-[70vh]"
+    />
+  </section>
+
+  <section class="mx-auto mt-24 grid max-w-screen-xl gap-10 px-6 md:mt-32 md:grid-cols-12 md:gap-16">
+    <div class="md:col-span-5">
+      <p class="mb-6 text-[11px] uppercase tracking-[0.3em] text-faded">Desde 2018</p>
+      <h2 class="text-balance font-serif text-3xl leading-[1.02] md:text-5xl">Empezamos con una escultura.</h2>
+    </div>
+    <div class="space-y-6 leading-relaxed text-faded md:col-span-6 md:col-start-7">
+      <p>
+        MOART nació en un taller prestado, con una sola figura de marmolina modelada a mano — la pieza que dio origen a Aurora. Siete años después seguimos trabajando solo con marmolina, seguimos creando por encargo y seguimos firmando cada pieza en la base antes de que sale.
+      </p>
+      <p>
+        El catálogo es pequeño a propósito. Seis piezas, tres familias. Preferimos saber bien pocas cosas a ofrecer cien que no dominamos.
+      </p>
+    </div>
+  </section>
+
+  <section class="mx-auto mt-24 max-w-screen-xl border-t border-line px-6 pt-12 md:mt-32">
+    <p class="mb-12 text-[11px] uppercase tracking-[0.3em] text-faded">Cómo trabajamos</p>
+    <div class="grid gap-x-8 gap-y-12 md:grid-cols-3">
+      {
+        [
+          {
+            n: "01",
+            h: "Marmolina, siempre",
+            p: "Sin resinas baratas ni núcleos industriales. Cada superficie que ves y tocas es la misma materia compactada, de principio a fin.",
+          },
+          {
+            n: "02",
+            h: "A mano, casi siempre",
+            p: "La mezcla y el molde se preparan con cuidado. El pulido, el acabado y los detalles se trabajan a mano. Es más lento. Se nota.",
+          },
+          {
+            n: "03",
+            h: "Hechas para durar",
+            p: "Acabados mate protegidos que se pueden retocar en casa. Nada es desechable: cada pieza puede restaurarse y pasarse a otra generación.",
+          },
+        ].map((block) => (
+          <div class="space-y-3">
+            <p class="text-[10px] uppercase tracking-[0.3em] text-faded tabular-nums">{block.n}</p>
+            <h3 class="font-serif text-2xl">{block.h}</h3>
+            <p class="text-sm leading-relaxed text-faded">{block.p}</p>
+          </div>
+        ))
+      }
+    </div>
+  </section>
+
+  <section class="mt-24 md:mt-32">
+    <div class="mx-auto grid max-w-screen-2xl items-center gap-10 px-6 md:grid-cols-12 md:gap-16">
+      <div class="md:col-span-5">
+        <div class="aspect-[3/4] overflow-hidden rounded-[min(1vw,12px)] bg-paper">
+          <Image
+            src={handsImg}
+            alt="Primer plano de unas manos puliendo una pieza de marmolina clara"
+            width={1080}
+            height={1440}
+            format="webp"
+            loading="lazy"
+            class="h-full w-full object-cover"
+          />
+        </div>
+      </div>
+      <div class="space-y-8 md:col-span-6 md:col-start-7">
+        <p class="flex items-center gap-3 text-[11px] uppercase tracking-[0.3em] text-faded">
+          <span class="inline-block h-px w-8 bg-ink/40"></span>
+          Sobre la materia
+        </p>
+        <blockquote class="text-balance font-serif text-3xl leading-[1.15] md:text-4xl">
+          No compramos marmolina a granel. Cada lote se elige
+          <span class="italic text-accent">para la pieza que será</span> — a veces meses antes de moldearse.
+        </blockquote>
+        <p class="text-xs uppercase tracking-[0.25em] text-faded">— Fundador de MOART</p>
+        <div class="space-y-3 border-t border-line pt-6 text-sm leading-relaxed text-faded">
+          <p>
+            Marmolina blanca de carga mineral seleccionada. Marmolina tonalizada con óxidos naturales de una pequeña reserva. Marmolina con base de madera noble. Tres familias. Nada más.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="mx-auto mt-24 max-w-screen-xl border-y border-line px-6 py-12 md:mt-32">
+    <div class="grid grid-cols-2 gap-x-6 gap-y-10 md:grid-cols-4">
+      {
+        [
+          { n: "2018", l: "Fundado" },
+          { n: "2", l: "Artistas" },
+          { n: "3", l: "Materias" },
+          { n: "4–10", l: "Semanas de plazo" },
+        ].map((stat) => (
+          <div class="space-y-2">
+            <p class="font-serif text-4xl tabular-nums md:text-5xl">{stat.n}</p>
+            <p class="text-[10px] uppercase tracking-[0.3em] text-faded">{stat.l}</p>
+          </div>
+        ))
+      }
+    </div>
+  </section>
+
+  <section id="studio" class="mx-auto mb-32 mt-12 max-w-screen-xl px-6 md:mt-16">
+    <div class="grid items-end gap-10 md:grid-cols-12">
+      <div class="md:col-span-7">
+        <h2 class="max-w-[20ch] text-balance font-serif text-3xl leading-[1.02] md:text-5xl">
+          Visita el taller, o empieza por una pieza.
+        </h2>
+      </div>
+      <div class="flex flex-col gap-4 sm:flex-row md:col-span-5 md:justify-end">
+        <a
+          href="/catalog"
+          class="inline-flex items-center justify-center gap-3 rounded-full bg-ink px-7 py-4 text-[11px] font-medium uppercase tracking-[0.2em] text-[var(--color-base)] transition-colors hover:bg-accent"
+        >
+          Ver el catálogo →
+        </a>
+        <a
+          href="mailto:estudio@moart.es"
+          class="inline-flex items-center justify-center gap-3 rounded-full px-7 py-4 text-[11px] font-medium uppercase tracking-[0.2em] text-ink ring-1 ring-line transition-colors hover:bg-paper"
+        >
+          Escríbenos
+        </a>
+      </div>
+    </div>
+  </section>
+  </main>
+</BaseLayout>

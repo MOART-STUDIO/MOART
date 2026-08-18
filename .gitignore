@@ -1,0 +1,10 @@
+# Dependencias
+node_modules/
+
+# Build de Astro
+dist/
+.astro/
+
+# Archivos del sistema operativo
+.DS_Store
+Thumbs.db
