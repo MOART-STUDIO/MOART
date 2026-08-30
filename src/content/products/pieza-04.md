@@ -3,7 +3,7 @@ name: Estatua de Buda Sentado (Túnica Perforada)
 collection: Colección III — Relieves
 category: Relieves
 material: Marmolina
-price: 7000
+price: 12000
 shortDescription: Relieve de marmolina
 dimensions: 40 × 30 × 50 cm
 finish: Mate natural
