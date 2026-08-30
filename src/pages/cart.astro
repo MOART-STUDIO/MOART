@@ -6,6 +6,14 @@ import { withBase } from "@/utils/paths.js";
 
 const products = await getProducts();
 const cartProducts = products.map(productForJson);
+
+// Número de WhatsApp (código de país + número, solo dígitos) que recibe los pedidos del carrito.
+// Reemplázalo por tu número real antes de publicar.
+const WHATSAPP_NUMBER = "593978876608";
+
+// Access Key de Web3Forms (https://web3forms.com) que recibe los pedidos por correo.
+// Reemplázala por tu access key real antes de publicar.
+const WEB3FORMS_ACCESS_KEY = "8a62553e-96d2-4bbb-ae27-c6ac7bf54e3e";
 ---
 
 <BaseLayout
@@ -19,11 +27,13 @@ const cartProducts = products.map(productForJson);
         <p class="text-xs uppercase tracking-[0.25em] text-faded">Tu colección</p>
         <h1 class="font-serif text-5xl leading-none md:text-6xl" data-cart-title>Vacío por ahora.</h1>
       </div>
+      <!-- Indicador de pasos 02/03: sin uso al enviar el pedido por WhatsApp. Se conserva por si se reactiva el checkout.
       <div class="hidden gap-8 text-[11px] uppercase tracking-[0.2em] md:flex">
         <span data-cart-step="cart" class="text-ink">01 · Selección</span>
         <span data-cart-step="details" class="text-faded">02 · Detalles</span>
         <span class="text-faded">03 · Confirmación</span>
       </div>
+      -->
     </header>
 
     <div class="py-32 text-center" data-cart-empty>
@@ -44,6 +54,7 @@ const cartProducts = products.map(productForJson);
       <section class="space-y-2 lg:col-span-7" aria-live="polite">
         <ul class="divide-y divide-line border-y border-line" data-cart-list></ul>
 
+        <!-- Checkout por formulario: DESACTIVADO — los pedidos se envían por WhatsApp. Se conserva el código por si se reactiva.
         <form
           id="checkout-form"
           class="hidden space-y-10"
@@ -132,6 +143,7 @@ const cartProducts = products.map(productForJson);
             </div>
           </fieldset>
         </form>
+        -->
       </section>
 
       <aside class="space-y-8 rounded-[min(1vw,12px)] bg-paper p-8 lg:sticky lg:top-24 lg:col-span-5">
@@ -156,8 +168,16 @@ const cartProducts = products.map(productForJson);
             class="w-full rounded-full bg-ink py-4 text-sm font-medium text-[var(--color-base)] transition-colors hover:bg-accent"
             data-cart-primary
           >
-            Continuar a los detalles
+            Reservar por WhatsApp
           </button>
+          <button
+            type="button"
+            class="w-full rounded-full border border-line py-4 text-sm font-medium transition-colors hover:border-ink"
+            data-cart-email
+          >
+            Reservar por correo
+          </button>
+          <!-- Botón "Volver a la selección": sin uso al enviar el pedido por WhatsApp. Se conserva por si se reactiva el checkout.
           <button
             type="button"
             class="hidden w-full text-[11px] uppercase tracking-widest text-faded underline underline-offset-4 transition-colors hover:text-ink"
@@ -165,6 +185,7 @@ const cartProducts = products.map(productForJson);
           >
             Volver a la selección
           </button>
+          -->
         </div>
         <p class="border-t border-line pt-6 text-[11px] leading-relaxed text-faded">
           Cada pieza se envuelve en algodón crudo y se embala en cajas de madera reutilizables. Devolver la caja suma un pequeño crédito para tu próximo pedido.
@@ -226,9 +247,116 @@ const cartProducts = products.map(productForJson);
     }
   </main>
 
+  <div
+    class="fixed inset-0 z-[60] hidden items-center justify-center p-4 w-full h-full"
+    role="dialog"
+    aria-modal="true"
+    aria-labelledby="email-order-title"
+    data-order-modal
+  >
+    <div class="absolute inset-0 bg-ink/50" data-order-modal-backdrop></div>
+    <div
+      class="relative justify-self-center place-self-center max-h-[90dvh] w-full max-w-lg overflow-y-auto rounded-[min(1vw,12px)] bg-paper p-6 shadow-xl sm:p-8 "
+    >
+      <div class="mb-6 flex items-start justify-between gap-4">
+        <div>
+          <p class="text-xs uppercase tracking-[0.25em] text-faded">Pedido por correo</p>
+          <h2 id="email-order-title" class="mt-1 font-serif text-3xl">Reserva por correo</h2>
+        </div>
+        <button
+          type="button"
+          class="grid size-10 shrink-0 place-items-center rounded-full text-ink transition-colors hover:bg-neutral-100"
+          aria-label="Cerrar"
+          data-order-modal-close
+        >
+          ✕
+        </button>
+      </div>
+
+      <form
+        action="https://api.web3forms.com/submit"
+        method="POST"
+        class="space-y-5"
+        data-order-form
+      >
+        <!-- Web3Forms: access key y metadatos. Configúralos en https://web3forms.com -->
+        <input type="hidden" name="access_key" value={WEB3FORMS_ACCESS_KEY} />
+        <input type="hidden" name="subject" value="Nuevo pedido — MOART" />
+        <input type="hidden" name="from_name" value="MOART" />
+        <input type="hidden" name="detalle_pedido" data-order-detail-value />
+
+        <div class="grid grid-cols-1 gap-4 sm:grid-cols-2">
+          <label class="block">
+            <span class="text-[11px] uppercase tracking-widest text-faded">Nombre *</span>
+            <input
+              type="text"
+              name="nombre"
+              required
+              autocomplete="given-name"
+              placeholder="Lucía"
+              class="mt-1 w-full border-b border-line bg-transparent py-2 text-sm transition-colors focus:border-ink focus:outline-none"
+            />
+          </label>
+          <label class="block">
+            <span class="text-[11px] uppercase tracking-widest text-faded">Apellido *</span>
+            <input
+              type="text"
+              name="apellido"
+              required
+              autocomplete="family-name"
+              placeholder="García"
+              class="mt-1 w-full border-b border-line bg-transparent py-2 text-sm transition-colors focus:border-ink focus:outline-none"
+            />
+          </label>
+        </div>
+
+        <label class="block">
+          <span class="text-[11px] uppercase tracking-widest text-faded">Número de contacto *</span>
+          <input
+            type="tel"
+            name="numero_contacto"
+            required
+            autocomplete="tel"
+            placeholder="+57 300 000 0000"
+            class="mt-1 w-full border-b border-line bg-transparent py-2 text-sm transition-colors focus:border-ink focus:outline-none"
+          />
+        </label>
+
+        <div>
+          <span class="text-[11px] uppercase tracking-widest text-faded">Detalle del pedido</span>
+          <textarea
+            readonly
+            disabled
+            aria-label="Detalle del pedido"
+            rows="8"
+            class="mt-1 w-full resize-none rounded-[min(1vw,8px)] border border-line bg-neutral-50 p-3 text-sm leading-relaxed text-ink"
+            data-order-detail
+          ></textarea>
+        </div>
+
+        <button
+          type="submit"
+          class="w-full rounded-full bg-ink py-4 text-sm font-medium text-[var(--color-base)] transition-colors hover:bg-accent disabled:cursor-not-allowed disabled:opacity-60"
+          data-order-submit
+        >
+          Enviar pedido
+        </button>
+        <p class="text-center text-[11px] leading-relaxed text-faded" role="status" data-order-status></p>
+      </form>
+    </div>
+  </div>
+
+  <div
+    aria-live="polite"
+    aria-atomic="true"
+    class="pointer-events-none fixed right-0 top-15 z-[70] flex justify-center px-6"
+    data-toast-region
+    hidden
+  ></div>
+
   <script is:inline type="application/json" id="cart-products" set:html={JSON.stringify(cartProducts)}></script>
 
-  <script is:inline>
+  <script is:inline define:vars={{ phone: WHATSAPP_NUMBER }}>
     const productList = JSON.parse(document.getElementById("cart-products").textContent);
     const productsBySlug = new Map(productList.map((product) => [product.slug, product]));
     const formatPrice = (value) =>
@@ -242,12 +370,251 @@ const cartProducts = products.map(productForJson);
     const empty = document.querySelector("[data-cart-empty]");
     const filled = document.querySelector("[data-cart-filled]");
     const list = document.querySelector("[data-cart-list]");
-    const form = document.querySelector("[data-checkout-form]");
     const primary = document.querySelector("[data-cart-primary]");
-    const back = document.querySelector("[data-cart-back]");
     const subtotalNode = document.querySelector("[data-cart-subtotal]");
     const shippingNode = document.querySelector("[data-cart-shipping]");
     const totalNode = document.querySelector("[data-cart-total]");
+
+    function knownRows() {
+      return window.MoartCart.read()
+        .map((item) => ({ item, product: productsBySlug.get(item.slug) }))
+        .filter((row) => row.product);
+    }
+
+    function cartTotals(rows) {
+      const subtotal = rows.reduce((total, row) => total + row.product.price * row.item.quantity, 0);
+      const shipping = rows.length > 0 ? 120 : 0;
+      return { subtotal, shipping, total: subtotal + shipping };
+    }
+
+    function whatsappMessage(rows, totals) {
+      return [
+        "Hola MOART, me gustaría reservar estas piezas:",
+        "",
+        ...rows.map(
+          ({ item, product }) =>
+            `• _${product.name}_ | *cantidad de: ${item.quantity}* | *Id de pieza: ${product.order}* | Total de pieza: ${formatPrice(product.price * item.quantity)}`,
+        ),
+        "",
+        `Subtotal: ${formatPrice(totals.subtotal)}`,
+        `Entrega con cuidado: ${formatPrice(totals.shipping)}`,
+        `*Total: ${formatPrice(totals.total)}*`,
+        "",
+        "Quedo atento a tu confirmación. ¡Gracias!",
+      ].join("\n");
+    }
+
+    function render() {
+      const rows = knownRows();
+      const { subtotal, shipping, total } = cartTotals(rows);
+
+      title.textContent = rows.length === 0 ? "Vacío por ahora." : "Revisa tu selección.";
+      empty.classList.toggle("hidden", rows.length !== 0);
+      filled.classList.toggle("hidden", rows.length === 0);
+
+      subtotalNode.textContent = formatPrice(subtotal);
+      shippingNode.textContent = formatPrice(shipping);
+      totalNode.textContent = formatPrice(total);
+
+      list.replaceChildren();
+      rows.forEach(({ item, product }) => {
+        const template = document.querySelector(`template[data-product-template="${item.slug}"]`);
+        const row = template.content.firstElementChild.cloneNode(true);
+        row.querySelector("[data-row-quantity]").textContent = String(item.quantity);
+        row.querySelector("[data-row-line-price]").textContent = formatPrice(product.price * item.quantity);
+        row.querySelector('[data-cart-action="decrease"]').addEventListener("click", () => window.MoartCart.setQuantity(item.slug, item.quantity - 1));
+        row.querySelector('[data-cart-action="increase"]').addEventListener("click", () => window.MoartCart.setQuantity(item.slug, item.quantity + 1));
+        row.querySelector('[data-cart-action="remove"]').addEventListener("click", () => window.MoartCart.remove(item.slug));
+        list.appendChild(row);
+      });
+    }
+
+    primary.addEventListener("click", () => {
+      const rows = knownRows();
+      if (rows.length === 0) return;
+      const totals = cartTotals(rows);
+      const url = `https://wa.me/${phone}?text=${encodeURIComponent(whatsappMessage(rows, totals))}`;
+      window.open(url, "_blank", "noopener");
+    });
+
+    document.addEventListener("moart-cart-change", render);
+    render();
+
+    const emailButton = document.querySelector("[data-cart-email]");
+    const modal = document.querySelector("[data-order-modal]");
+    const backdrop = document.querySelector("[data-order-modal-backdrop]");
+    const modalClose = document.querySelector("[data-order-modal-close]");
+    const orderForm = document.querySelector("[data-order-form]");
+    const orderDetail = modal ? modal.querySelector("[data-order-detail]") : null;
+    const orderSubmit = modal ? modal.querySelector("[data-order-submit]") : null;
+    const orderStatus = modal ? modal.querySelector("[data-order-status]") : null;
+    const firstInput = modal ? modal.querySelector('input[name="nombre"]') : null;
+    const focusableInModal = modal
+      ? Array.from(modal.querySelectorAll('input:not([type="hidden"]), textarea, button'))
+      : [];
+
+    const toastRegion = document.querySelector("[data-toast-region]");
+    let toastTimer;
+
+    function showToast(message) {
+      if (!toastRegion) return;
+      window.clearTimeout(toastTimer);
+      toastRegion.replaceChildren();
+      toastRegion.hidden = false;
+
+      const panel = document.createElement("div");
+      panel.className = "moart-toast pointer-events-auto flex max-w-sm items-center gap-3 rounded-full bg-white py-2 pl-4 pr-2 text-sm text-black shadow-lg";
+
+      const check = document.createElement("span");
+      check.setAttribute("aria-hidden", "true");
+      check.className = "grid size-9 shrink-0 place-items-center rounded-full bg-[#718355] text-[var(--color-base)]";
+      check.textContent = "✓";
+
+      const messageNode = document.createElement("span");
+      messageNode.textContent = message;
+
+      const close = document.createElement("button");
+      close.type = "button";
+      close.className = "grid size-9 shrink-0 place-items-center rounded-full text-xs transition-colors bg-neutral-100 hover:bg-white/10";
+      close.setAttribute("aria-label", "Cerrar aviso");
+      close.textContent = "✕";
+
+      const dismiss = () => {
+        panel.classList.add("moart-toast-out");
+        window.setTimeout(() => {
+          panel.remove();
+          if (!toastRegion.childNodes.length) toastRegion.hidden = true;
+        }, 250);
+      };
+
+      close.addEventListener("click", dismiss);
+      panel.append(check, messageNode, close);
+      toastRegion.append(panel);
+      toastTimer = window.setTimeout(dismiss, 3000);
+    }
+
+    function lockScroll() {
+      document.documentElement.style.overflow = "hidden";
+      document.body.style.overflow = "hidden";
+    }
+
+    function unlockScroll() {
+      document.documentElement.style.overflow = "";
+      document.body.style.overflow = "";
+    }
+
+    function orderSummaryText(rows, totals) {
+      return [
+        "PEDIDO MOART",
+        "",
+        ...rows.map(
+          ({ item, product }) =>
+            `• ${product.name} | id de pieza: ${product.order}\n | Cantidad: ${item.quantity}\n | Total pieza: ${formatPrice(product.price * item.quantity)}`,
+        ),
+        "",
+        `Subtotal: ${formatPrice(totals.subtotal)}`,
+        `Entrega con cuidado: ${formatPrice(totals.shipping)}`,
+        `Total: ${formatPrice(totals.total)}`,
+      ].join("\n");
+    }
+
+    function fillOrderDetail() {
+      const detail = orderSummaryText(knownRows(), cartTotals(knownRows()));
+      if (orderDetail) orderDetail.value = detail;
+      const hiddenDetail = orderForm ? orderForm.querySelector("[data-order-detail-value]") : null;
+      if (hiddenDetail) hiddenDetail.value = detail;
+    }
+
+    function openModal() {
+      if (!modal || knownRows().length === 0) return;
+      fillOrderDetail();
+      modal.classList.remove("hidden");
+      lockScroll();
+      if (orderStatus) orderStatus.textContent = "";
+      if (orderSubmit) {
+        orderSubmit.disabled = false;
+        orderSubmit.textContent = "Enviar pedido";
+      }
+      if (firstInput) firstInput.focus({ preventScroll: true });
+    }
+
+    function closeModal() {
+      if (!modal || modal.classList.contains("hidden")) return;
+      modal.classList.add("hidden");
+      unlockScroll();
+      if (emailButton) emailButton.focus({ preventScroll: true });
+    }
+
+    emailButton.addEventListener("click", openModal);
+    modalClose.addEventListener("click", closeModal);
+    backdrop.addEventListener("click", closeModal);
+
+    document.addEventListener("keydown", (event) => {
+      if (!modal || modal.classList.contains("hidden")) return;
+
+      if (event.key === "Escape") {
+        event.preventDefault();
+        closeModal();
+        return;
+      }
+
+      if (event.key !== "Tab") return;
+
+      const focusable = focusableInModal.filter((element) => {
+        return (
+          element instanceof HTMLElement && !element.disabled && element.offsetParent !== null
+        );
+      });
+
+      if (!focusable.length) return;
+      const first = focusable[0];
+      const last = focusable[focusable.length - 1];
+
+      if (event.shiftKey && document.activeElement === first) {
+        event.preventDefault();
+        last.focus();
+      } else if (!event.shiftKey && document.activeElement === last) {
+        event.preventDefault();
+        first.focus();
+      }
+    });
+
+    orderForm.addEventListener("submit", async (event) => {
+      event.preventDefault();
+      if (!orderForm.reportValidity()) return;
+
+      orderSubmit.disabled = true;
+      orderSubmit.textContent = "Enviando…";
+      orderStatus.textContent = "";
+
+      try {
+        const response = await fetch(orderForm.action, {
+          method: "POST",
+          body: new FormData(orderForm),
+          headers: { Accept: "application/json" },
+        });
+        const data = await response.json();
+        if (data.success) {
+          orderStatus.textContent = "¡Pedido enviado! Te contactaremos para coordinar el pago y la entrega.";
+          showToast("Pedido enviado correctamente");
+          window.MoartCart.write([]);
+          orderForm.reset();
+          window.setTimeout(closeModal, 2200);
+        } else {
+          orderStatus.textContent = data.message || "No se pudo enviar el pedido. Inténtalo de nuevo.";
+          orderSubmit.disabled = false;
+          orderSubmit.textContent = "Enviar pedido";
+        }
+      } catch (error) {
+        orderStatus.textContent = "No se pudo enviar el pedido. Inténtalo de nuevo.";
+        orderSubmit.disabled = false;
+        orderSubmit.textContent = "Enviar pedido";
+      }
+    });
+
+    /* ────── Checkout por formulario: DESACTIVADO. Código conservado por si se reactiva. ──────
+    const form = document.querySelector("[data-checkout-form]");
+    const back = document.querySelector("[data-cart-back]");
     const stepCart = document.querySelector('[data-cart-step="cart"]');
     const stepDetails = document.querySelector('[data-cart-step="details"]');
     const cardNumber = document.querySelector("[data-card-number]");
@@ -269,46 +636,15 @@ const cartProducts = products.map(productForJson);
       return `${digits.slice(0, 2)} / ${digits.slice(2)}`;
     }
 
-    function knownRows() {
-      return window.MoartCart.read()
-        .map((item) => ({ item, product: productsBySlug.get(item.slug) }))
-        .filter((row) => row.product);
-    }
+    if (rows.length === 0) step = "cart";
 
-    function render() {
-      const rows = knownRows();
-      const subtotal = rows.reduce((total, row) => total + row.product.price * row.item.quantity, 0);
-      const shipping = rows.length > 0 ? 120 : 0;
-      const total = subtotal + shipping;
-
-      if (rows.length === 0) step = "cart";
-
-      title.textContent = rows.length === 0 ? "Vacío por ahora." : step === "cart" ? "Revisa tu selección." : "Unos datos.";
-      empty.classList.toggle("hidden", rows.length !== 0);
-      filled.classList.toggle("hidden", rows.length === 0);
-      list.classList.toggle("hidden", step !== "cart");
-      form.classList.toggle("hidden", step !== "details");
-      primary.textContent = step === "cart" ? "Continuar a los detalles" : `Reservar · ${formatPrice(total)}`;
-      back.classList.toggle("hidden", step !== "details");
-      stepCart.className = step === "cart" ? "text-ink" : "text-faded";
-      stepDetails.className = step === "details" ? "text-ink" : "text-faded";
-
-      subtotalNode.textContent = formatPrice(subtotal);
-      shippingNode.textContent = formatPrice(shipping);
-      totalNode.textContent = formatPrice(total);
-
-      list.replaceChildren();
-      rows.forEach(({ item, product }) => {
-        const template = document.querySelector(`template[data-product-template="${item.slug}"]`);
-        const row = template.content.firstElementChild.cloneNode(true);
-        row.querySelector("[data-row-quantity]").textContent = String(item.quantity);
-        row.querySelector("[data-row-line-price]").textContent = formatPrice(product.price * item.quantity);
-        row.querySelector('[data-cart-action="decrease"]').addEventListener("click", () => window.MoartCart.setQuantity(item.slug, item.quantity - 1));
-        row.querySelector('[data-cart-action="increase"]').addEventListener("click", () => window.MoartCart.setQuantity(item.slug, item.quantity + 1));
-        row.querySelector('[data-cart-action="remove"]').addEventListener("click", () => window.MoartCart.remove(item.slug));
-        list.appendChild(row);
-      });
-    }
+    title.textContent = step === "cart" ? "Revisa tu selección." : "Unos datos.";
+    list.classList.toggle("hidden", step !== "cart");
+    form.classList.toggle("hidden", step !== "details");
+    primary.textContent = step === "cart" ? "Continuar a los detalles" : `Reservar · ${formatPrice(total)}`;
+    back.classList.toggle("hidden", step !== "details");
+    stepCart.className = step === "cart" ? "text-ink" : "text-faded";
+    stepDetails.className = step === "details" ? "text-ink" : "text-faded";
 
     primary.addEventListener("click", () => {
       if (step === "cart") {
@@ -340,8 +676,6 @@ const cartProducts = products.map(productForJson);
     cardCvc.addEventListener("input", () => {
       cardCvc.value = digitsOnly(cardCvc.value, 3);
     });
-
-    document.addEventListener("moart-cart-change", render);
-    render();
+    */
   </script>
 </BaseLayout>

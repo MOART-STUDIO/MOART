@@ -87,5 +87,6 @@ export function productForJson(product: Product) {
     dimensions: product.dimensions,
     finish: product.finish,
     leadTime: product.leadTime,
+    order: product.order
   };
 }
