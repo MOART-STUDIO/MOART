@@ -3,7 +3,7 @@ name: Set de Nacimiento Navideño en Miniatura
 collection: Colección I — Figuras
 category: Figuras
 material: Marmolina
-price: 45000
+price: 77000
 shortDescription: Figura de marmolina
 dimensions: 40 × 30 × 50 cm
 finish: Mate natural
