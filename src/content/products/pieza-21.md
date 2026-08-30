@@ -1,5 +1,5 @@
 ---
-name: Pieza 21
+name: Ángel de Rodillas Orando
 collection: Colección I — Figuras
 category: Figuras
 material: Marmolina
@@ -13,4 +13,4 @@ images:
 order: 21
 ---
 
-Pieza de marmolina moldeada y pulida a mano en nuestro taller. Hecha por encargo, firmada en la base y pensada para habitar el espacio con calma.
+Representación clásica con las alas extendidas hacia arriba y las manos unidas en oración devota. La figura se arrodilla sobre una base circular decorada con pequeñas rosas y tiene una expresión serena y pacífica.

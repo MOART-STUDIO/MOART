@@ -1,5 +1,5 @@
 ---
-name: Pieza 25
+name: Candelabro de Alas de Ángel
 collection: Colección I — Figuras
 category: Figuras
 material: Marmolina
@@ -13,4 +13,4 @@ images:
 order: 25
 ---
 
-Pieza de marmolina moldeada y pulida a mano en nuestro taller. Hecha por encargo, firmada en la base y pensada para habitar el espacio con calma.
+Base para vela diseñada con dos alas de ángel que se curvan hacia arriba y se unen en la parte superior. Las plumas están meticulosamente talladas en toda la estructura, ofreciendo una pieza elegante y simbólica para iluminación.

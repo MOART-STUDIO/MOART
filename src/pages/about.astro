@@ -1,14 +1,13 @@
 ---
-import { Image } from "astro:assets";
 import BaseLayout from "@/layouts/BaseLayout.astro";
 import { withBase } from "@/utils/paths.js";
-import handsImg from "@/assets/moart-manos.jpg";
-import workshopImg from "@/assets/moart-taller.jpg";
+const handsImg = withBase("/imagenes catalogo/marmolinaliquid.jpeg");
+const workshopImg = withBase("/imagenes catalogo/moartaller.jpg");
 ---
 
 <BaseLayout
   title="Nosotros — MOART"
-  description="Un pequeño taller en España que crea esculturas de marmolina a mano. Lentas, firmadas y pensadas para durar generaciones."
+  description="Un pequeño taller en España que crea esculturas de marmolina a mano. Lentas y pensadas para durar generaciones."
   image={workshopImg}
 >
   <main id="main-content">
@@ -21,17 +20,16 @@ import workshopImg from "@/assets/moart-taller.jpg";
       Un pequeño taller, <span class="italic text-accent">hecho con calma.</span>
     </h1>
     <p class="mt-8 max-w-[58ch] text-lg leading-relaxed text-faded">
-      MOART es un estudio de dos personas en España. Diseñamos y moldeamos un pequeño catálogo de esculturas en marmolina — a mano, por encargo. Sin fábrica, sin prisas, sin atajos.
+      MOART es un estudio de dos personas en Colombia. Diseñamos y moldeamos un pequeño catálogo de esculturas en marmolina — a mano, por encargo. Sin fábrica, sin prisas, sin atajos.
     </p>
   </section>
 
   <section class="relative w-full">
-    <Image
+    <img
       src={workshopImg}
       alt="Taller soleado de escultura en marmolina con herramientas manuales y una pieza a medio terminar"
       width={1920}
       height={1080}
-      format="webp"
       loading="eager"
       class="h-[50vh] w-full object-cover md:h-[70vh]"
     />
@@ -44,10 +42,10 @@ import workshopImg from "@/assets/moart-taller.jpg";
     </div>
     <div class="space-y-6 leading-relaxed text-faded md:col-span-6 md:col-start-7">
       <p>
-        MOART nació en un taller prestado, con una sola figura de marmolina modelada a mano — la pieza que dio origen a Aurora. Siete años después seguimos trabajando solo con marmolina, seguimos creando por encargo y seguimos firmando cada pieza en la base antes de que sale.
+        MOART nació en un taller prestado, con una sola figura de marmolina modelada a mano — la pieza que dio origen a Aurora. Siete años después seguimos trabajando solo con marmolina y seguimos creando por encargo.
       </p>
       <p>
-        El catálogo es pequeño a propósito. Seis piezas, tres familias. Preferimos saber bien pocas cosas a ofrecer cien que no dominamos.
+        El catálogo es pequeño a propósito. Preferimos saber bien pocas cosas a ofrecer cien que no dominamos.
       </p>
     </div>
   </section>
@@ -87,12 +85,11 @@ import workshopImg from "@/assets/moart-taller.jpg";
     <div class="mx-auto grid max-w-screen-2xl items-center gap-10 px-6 md:grid-cols-12 md:gap-16">
       <div class="md:col-span-5">
         <div class="aspect-[3/4] overflow-hidden rounded-[min(1vw,12px)] bg-paper">
-          <Image
+          <img
             src={handsImg}
-            alt="Primer plano de unas manos puliendo una pieza de marmolina clara"
+            alt="Marmolina líquida lista para ser moldeada a mano"
             width={1080}
             height={1440}
-            format="webp"
             loading="lazy"
             class="h-full w-full object-cover"
           />
@@ -110,7 +107,7 @@ import workshopImg from "@/assets/moart-taller.jpg";
         <p class="text-xs uppercase tracking-[0.25em] text-faded">— Fundador de MOART</p>
         <div class="space-y-3 border-t border-line pt-6 text-sm leading-relaxed text-faded">
           <p>
-            Marmolina blanca de carga mineral seleccionada. Marmolina tonalizada con óxidos naturales de una pequeña reserva. Marmolina con base de madera noble. Tres familias. Nada más.
+            Marmolina blanca de carga mineral seleccionada. Una familia. Nada más.
           </p>
         </div>
       </div>

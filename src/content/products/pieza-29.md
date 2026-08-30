@@ -1,5 +1,5 @@
 ---
-name: Pieza 29
+name: Corazón Anatómico Humano
 collection: Colección I — Figuras
 category: Figuras
 material: Marmolina
@@ -13,4 +13,4 @@ images:
 order: 29
 ---
 
-Pieza de marmolina moldeada y pulida a mano en nuestro taller. Hecha por encargo, firmada en la base y pensada para habitar el espacio con calma.
+Escultura detallada que representa el corazón humano con sus principales vasos sanguíneos y textura realista. La pieza está montada sobre un pedestal cilíndrico blanco, destacando la complejidad y belleza del órgano.

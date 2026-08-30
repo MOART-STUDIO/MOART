@@ -1,5 +1,5 @@
 ---
-name: Pieza 24
+name: Sagrada Familia Tradicional
 collection: Colección II — Navidad
 category: Navidad
 material: Marmolina
@@ -13,4 +13,4 @@ images:
 order: 24
 ---
 
-Pieza de marmolina moldeada y pulida a mano en nuestro taller. Hecha por encargo, firmada en la base y pensada para habitar el espacio con calma.
+Escenas detalladas de la Virgen María, San José con su bastón y el Niño Jesús en el pesebre. Las figuras presentan vestiduras con pliegues suaves y expresiones tranquilas, creando una atmósfera devota y clásica.

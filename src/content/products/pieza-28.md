@@ -1,5 +1,5 @@
 ---
-name: Pieza 28
+name: Virgen de Guadalupe
 collection: Colección III — Relieves
 category: Relieves
 material: Marmolina
@@ -13,4 +13,4 @@ images:
 order: 28
 ---
 
-Pieza de marmolina moldeada y pulida a mano en nuestro taller. Hecha por encargo, firmada en la base y pensada para habitar el espacio con calma.
+Efigie clásica de la Patrona de México, con las manos juntas en oración y el manto cubierto de estrellas. Se alza sobre la luna y la nube sostenida por un ángel, rodeada por la mandorla de rayos solares.

@@ -139,15 +139,15 @@ const cartProducts = products.map(productForJson);
         <div class="space-y-3">
           <div class="flex justify-between text-sm">
             <span class="text-faded">Subtotal</span>
-            <span class="tabular-nums" data-cart-subtotal>0 €</span>
+            <span class="tabular-nums" data-cart-subtotal>$ 0</span>
           </div>
           <div class="flex justify-between text-sm">
             <span class="text-faded">Entrega con cuidado</span>
-            <span class="tabular-nums" data-cart-shipping>0 €</span>
+            <span class="tabular-nums" data-cart-shipping>$ 0</span>
           </div>
           <div class="flex items-baseline justify-between border-t border-line pt-3">
             <span class="text-sm">Total</span>
-            <span class="font-serif text-3xl tabular-nums" data-cart-total>0 €</span>
+            <span class="font-serif text-3xl tabular-nums" data-cart-total>$ 0</span>
           </div>
         </div>
         <div class="space-y-3">
@@ -167,7 +167,7 @@ const cartProducts = products.map(productForJson);
           </button>
         </div>
         <p class="border-t border-line pt-6 text-[11px] leading-relaxed text-faded">
-          Cada pieza se firma y se fecha. Se envuelven en algodón crudo y se embalan en cajas de madera reutilizables. Devolver la caja suma un pequeño crédito para tu próximo pedido.
+          Cada pieza se envuelve en algodón crudo y se embala en cajas de madera reutilizables. Devolver la caja suma un pequeño crédito para tu próximo pedido.
         </p>
       </aside>
     </div>
@@ -232,9 +232,9 @@ const cartProducts = products.map(productForJson);
     const productList = JSON.parse(document.getElementById("cart-products").textContent);
     const productsBySlug = new Map(productList.map((product) => [product.slug, product]));
     const formatPrice = (value) =>
-      new Intl.NumberFormat("es-ES", {
+      new Intl.NumberFormat("es-CO", {
         style: "currency",
-        currency: "EUR",
+        currency: "COP",
         maximumFractionDigits: 0,
       }).format(value);
 

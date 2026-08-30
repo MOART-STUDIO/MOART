@@ -1,5 +1,5 @@
 ---
-name: Pieza 38
+name: Conjunto de Gallos y Gallinas
 collection: Colección III — Relieves
 category: Relieves
 material: Marmolina
@@ -13,4 +13,4 @@ images:
 order: 38
 ---
 
-Pieza de marmolina moldeada y pulida a mano en nuestro taller. Hecha por encargo, firmada en la base y pensada para habitar el espacio con calma.
+Conjunto de tres esculturas de aves de corral con gallos y gallinas en diferentes posturas. Las piezas muestran un detallado trabajo en las plumas y bases decoradas con elementos del campo.

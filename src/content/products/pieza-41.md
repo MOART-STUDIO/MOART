@@ -1,5 +1,5 @@
 ---
-name: Pieza 41
+name: Mono con Cola Larga
 collection: Colección I — Figuras
 category: Figuras
 material: Marmolina
@@ -13,4 +13,4 @@ images:
 order: 41
 ---
 
-Pieza de marmolina moldeada y pulida a mano en nuestro taller. Hecha por encargo, firmada en la base y pensada para habitar el espacio con calma.
+Escultura de un mono en postura dinámica con una cola muy larga y arqueada hacia arriba, apoyado sobre sus manos en un lecho de arena.

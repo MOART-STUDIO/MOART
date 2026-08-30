@@ -65,7 +65,12 @@ const { categories: allCategories, materials: allMaterials } = getProductFilters
             data-price={product.price}
             data-index={index}
           >
-            <ProductCard product={product} eager={index < 3} />
+            <ProductCard
+              product={product}
+              eager={index < 3}
+              nameOverride={`Pieza ${product.order}`}
+              shortOverride={product.name}
+            />
           </article>
         ))
       }

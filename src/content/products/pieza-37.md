@@ -1,5 +1,5 @@
 ---
-name: Pieza 37
+name: Pulpo Texturizado
 collection: Colección I — Figuras
 category: Figuras
 material: Marmolina
@@ -13,4 +13,4 @@ images:
 order: 37
 ---
 
-Pieza de marmolina moldeada y pulida a mano en nuestro taller. Hecha por encargo, firmada en la base y pensada para habitar el espacio con calma.
+Escultura detallada de un pulpo con tentáculos curvados y texturizados con ventosas en relieve. La figura reposa sobre un lecho de arena con un diseño lineal y elementos naturales.

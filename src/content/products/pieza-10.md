@@ -1,5 +1,5 @@
 ---
-name: Pieza 10
+name: La Huida a Egipto
 collection: Colección II — Navidad
 category: Navidad
 material: Marmolina
@@ -13,4 +13,4 @@ images:
 order: 10
 ---
 
-Pieza de marmolina moldeada y pulida a mano en nuestro taller. Hecha por encargo, firmada en la base y pensada para habitar el espacio con calma.
+Escena clásica que retrata a la Virgen María cargando al Niño Jesús sobre un burro, guiados por San José con su bastón. Representa fielmente este pasaje bíblico con gran fluidez en sus pliegues.

@@ -1,5 +1,5 @@
 ---
-name: Pieza 32
+name: Figuras de Yoga
 collection: Colección III — Relieves
 category: Relieves
 material: Marmolina
@@ -13,4 +13,4 @@ images:
 order: 32
 ---
 
-Pieza de marmolina moldeada y pulida a mano en nuestro taller. Hecha por encargo, firmada en la base y pensada para habitar el espacio con calma.
+Conjunto de tres esculturas minimalistas de figuras femeninas en posturas de yoga sobre esteras. Las figuras de líneas estilizadas y color blanco transmiten paz, equilibrio y serenidad.

@@ -1,5 +1,5 @@
 ---
-name: Pieza 22
+name: Querubín con Pájaro en Manos
 collection: Colección III — Relieves
 category: Relieves
 material: Marmolina
@@ -13,4 +13,4 @@ images:
 order: 22
 ---
 
-Pieza de marmolina moldeada y pulida a mano en nuestro taller. Hecha por encargo, firmada en la base y pensada para habitar el espacio con calma.
+Tierno ángel infantil sentado, sosteniendo delicadamente un pequeño pájaro entre sus manos. Muestra una expresión dulce y una mirada directa, con alas emplumadas detalladas y suaves pliegues en su túnica.

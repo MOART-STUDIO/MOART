@@ -1,5 +1,5 @@
 ---
-name: Pieza 4
+name: Estatua de Buda Sentado (Túnica Perforada)
 collection: Colección III — Relieves
 category: Relieves
 material: Marmolina
@@ -13,4 +13,4 @@ images:
 order: 4
 ---
 
-Pieza de marmolina moldeada y pulida a mano en nuestro taller. Hecha por encargo, firmada en la base y pensada para habitar el espacio con calma.
+Buda sentado en posición de loto con detalles geométricos y perforados en la túnica que aportan textura visual. Diseño sobrio y elegante enfocado en la meditación y el bienestar.

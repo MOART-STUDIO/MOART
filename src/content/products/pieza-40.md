@@ -1,5 +1,5 @@
 ---
-name: Pieza 40
+name: Elefantes en Familia
 collection: Colección III — Relieves
 category: Relieves
 material: Marmolina
@@ -13,4 +13,4 @@ images:
 order: 40
 ---
 
-Pieza de marmolina moldeada y pulida a mano en nuestro taller. Hecha por encargo, firmada en la base y pensada para habitar el espacio con calma.
+Escultura de una elefanta grande con la trompa elevada y un pequeño elefante caminando a su lado, con texturas detalladas en la piel sobre una superficie de arena.

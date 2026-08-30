@@ -1,5 +1,5 @@
 ---
-name: Pieza 23
+name: Set de Tres Figuras "Jacks"
 collection: Colección I — Figuras
 category: Figuras
 material: Marmolina
@@ -13,4 +13,4 @@ images:
 order: 23
 ---
 
-Pieza de marmolina moldeada y pulida a mano en nuestro taller. Hecha por encargo, firmada en la base y pensada para habitar el espacio con calma.
+Conjunto decorativo de tres piezas geométricas inspiradas en el juego de niños con textura o liza. Cada elemento presenta una estructura de puntas redondeadas con una textura sutil y acabado mate, ideales para un estilo moderno y minimalista.

@@ -1,5 +1,5 @@
 ---
-name: Pieza 19
+name: Farol Navideño de la Sagrada Familia
 collection: Colección II — Navidad
 category: Navidad
 material: Marmolina
@@ -13,4 +13,4 @@ images:
 order: 19
 ---
 
-Pieza de marmolina moldeada y pulida a mano en nuestro taller. Hecha por encargo, firmada en la base y pensada para habitar el espacio con calma.
+Lámpara decorativa con relieve de la escena del pesebre en su interior, perforaciones laterales y detalles rústicos en la estructura. Una pieza luminosa perfecta para ambientar las festividades decembrinas.

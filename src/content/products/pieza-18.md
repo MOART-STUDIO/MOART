@@ -1,5 +1,5 @@
 ---
-name: Pieza 18
+name: Figuras de Meditación sobre Bases Naturales
 collection: Colección III — Relieves
 category: Relieves
 material: Marmolina
@@ -13,4 +13,4 @@ images:
 order: 18
 ---
 
-Pieza de marmolina moldeada y pulida a mano en nuestro taller. Hecha por encargo, firmada en la base y pensada para habitar el espacio con calma.
+Pareja de figuras estilizadas en postura de loto acompañadas de pequeños recipientes con una flor esculpida, presentadas sobre bases de hoja y piedra. Un elemento decorativo que evoca calma y armonía.

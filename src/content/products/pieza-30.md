@@ -1,5 +1,5 @@
 ---
-name: Pieza 30
+name: San José Carpintero
 collection: Colección II — Navidad
 category: Navidad
 material: Marmolina
@@ -13,4 +13,4 @@ images:
 order: 30
 ---
 
-Pieza de marmolina moldeada y pulida a mano en nuestro taller. Hecha por encargo, firmada en la base y pensada para habitar el espacio con calma.
+San José carpintero de pie, con túnica larga, delantal marrón y expresión serena. Sostiene una herramienta de carpintería y viste sandalias, apoyado sobre una base hexagonal dorada.

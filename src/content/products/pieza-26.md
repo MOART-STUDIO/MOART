@@ -1,5 +1,5 @@
 ---
-name: Pieza 26
+name: Nacimiento en Portal Rústico
 collection: Colección II — Navidad
 category: Navidad
 material: Marmolina
@@ -13,4 +13,4 @@ images:
 order: 26
 ---
 
-Pieza de marmolina moldeada y pulida a mano en nuestro taller. Hecha por encargo, firmada en la base y pensada para habitar el espacio con calma.
+Completo conjunto de figuras del pesebre (Sagrada Familia, Reyes Magos, pastores y animales) dispuestas dentro de una estructura de madera rústica que simula un establo. La escena está iluminada por faroles, evocando la calidez de la Navidad.

@@ -1,5 +1,5 @@
 ---
-name: Pieza 9
+name: Escultura de Gallo y Pollitos
 collection: Colección I — Figuras
 category: Figuras
 material: Marmolina
@@ -13,4 +13,4 @@ images:
 order: 9
 ---
 
-Pieza de marmolina moldeada y pulida a mano en nuestro taller. Hecha por encargo, firmada en la base y pensada para habitar el espacio con calma.
+Muestra a un gallo sobre un nido de mimbre acompañado de pollitos alrededor. Diseño campestre y detallado que aporta un toque rústico y natural.

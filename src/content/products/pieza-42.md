@@ -1,5 +1,5 @@
 ---
-name: Pieza 42
+name: Buda bajo Árbol Bonsái
 collection: Colección III — Relieves
 category: Relieves
 material: Marmolina
@@ -13,4 +13,4 @@ images:
 order: 42
 ---
 
-Pieza de marmolina moldeada y pulida a mano en nuestro taller. Hecha por encargo, firmada en la base y pensada para habitar el espacio con calma.
+Figura de Buda sentado en postura de meditación bajo la estructura esculpida de un árbol bonsái con follaje texturizado y un tronco retorcido.

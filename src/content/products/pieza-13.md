@@ -1,5 +1,5 @@
 ---
-name: Pieza 13
+name: Nacimiento en Árbol de Navidad con Luces
 collection: Colección II — Navidad
 category: Navidad
 material: Marmolina
@@ -13,4 +13,4 @@ images:
 order: 13
 ---
 
-Pieza de marmolina moldeada y pulida a mano en nuestro taller. Hecha por encargo, firmada en la base y pensada para habitar el espacio con calma.
+Diseño navideño en forma de pino que resguarda la escena de la Sagrada Familia en su interior con iluminación integrada y una estrella en la cúspide. Una pieza cálida y festiva para decorar el hogar.

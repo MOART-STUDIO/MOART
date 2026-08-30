@@ -1,5 +1,5 @@
 ---
-name: Pieza 17
+name: Pato Donald Sosteniendo una Gema
 collection: Colección I — Figuras
 category: Figuras
 material: Marmolina
@@ -13,4 +13,4 @@ images:
 order: 17
 ---
 
-Pieza de marmolina moldeada y pulida a mano en nuestro taller. Hecha por encargo, firmada en la base y pensada para habitar el espacio con calma.
+Figura dinámica del entrañable pato con sombrero de copa sosteniendo un gran diamante facetado con ambas manos. Una obra llamativa que mezcla la cultura pop con la elegancia artesanal.

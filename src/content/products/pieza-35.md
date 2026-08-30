@@ -1,5 +1,5 @@
 ---
-name: Pieza 35
+name: Pareja de Aves Rústicas
 collection: Colección I — Figuras
 category: Figuras
 material: Marmolina
@@ -13,4 +13,4 @@ images:
 order: 35
 ---
 
-Pieza de marmolina moldeada y pulida a mano en nuestro taller. Hecha por encargo, firmada en la base y pensada para habitar el espacio con calma.
+Pareja de esculturas rústicas de gallo y gallina en tonos blancos con detalles texturizados. El gallo luce una cresta prominente y plumaje detallado, mientras la gallina descansa en una postura pacífica.

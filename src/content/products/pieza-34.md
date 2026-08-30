@@ -1,5 +1,5 @@
 ---
-name: Pieza 34
+name: Zorro con Bandeja
 collection: Colección III — Relieves
 category: Relieves
 material: Marmolina
@@ -13,4 +13,4 @@ images:
 order: 34
 ---
 
-Pieza de marmolina moldeada y pulida a mano en nuestro taller. Hecha por encargo, firmada en la base y pensada para habitar el espacio con calma.
+Escultura de un zorro antropomórfico vestido con chaqueta elegante de época, sosteniendo una bandeja circular cargada de piñas de pino.

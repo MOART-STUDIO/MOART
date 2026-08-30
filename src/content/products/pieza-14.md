@@ -1,5 +1,5 @@
 ---
-name: Pieza 14
+name: Monos (Madre y Cría)
 collection: Colección III — Relieves
 category: Relieves
 material: Marmolina
@@ -13,4 +13,4 @@ images:
 order: 14
 ---
 
-Pieza de marmolina moldeada y pulida a mano en nuestro taller. Hecha por encargo, firmada en la base y pensada para habitar el espacio con calma.
+Composición dinámica que muestra a un simio adulto en pie con una cría montada sobre su espalda y una larga cola enroscada. Detalla fielmente la textura del pelaje con un enfoque naturalista y tierno.

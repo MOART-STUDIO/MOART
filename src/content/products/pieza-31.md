@@ -1,5 +1,5 @@
 ---
-name: Pieza 31
+name: Jarrones de Hojas
 collection: Colección I — Figuras
 category: Figuras
 material: Marmolina
@@ -13,4 +13,4 @@ images:
 order: 31
 ---
 
-Pieza de marmolina moldeada y pulida a mano en nuestro taller. Hecha por encargo, firmada en la base y pensada para habitar el espacio con calma.
+Par de jarrones decorativos blancos de diseño ovalado y circular con una textura en relieve que imita las nervaduras de una hoja.

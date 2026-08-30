@@ -1,5 +1,5 @@
 ---
-name: Pieza 11
+name: Perro en Postura de Yoga
 collection: Colección I — Figuras
 category: Figuras
 material: Marmolina
@@ -13,4 +13,4 @@ images:
 order: 11
 ---
 
-Pieza de marmolina moldeada y pulida a mano en nuestro taller. Hecha por encargo, firmada en la base y pensada para habitar el espacio con calma.
+Representación canina en posición de loto con detalles de manchas y una postura serena. Una pieza moderna, tierna y original ideal para amantes de la meditación y las mascotas.

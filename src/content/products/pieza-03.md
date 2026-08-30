@@ -1,5 +1,5 @@
 ---
-name: Pieza 3
+name: Set de Nacimiento Navideño en Miniatura
 collection: Colección I — Figuras
 category: Figuras
 material: Marmolina
@@ -13,4 +13,4 @@ images:
 order: 3
 ---
 
-Pieza de marmolina moldeada y pulida a mano en nuestro taller. Hecha por encargo, firmada en la base y pensada para habitar el espacio con calma.
+Conjunto de piezas con un diseño tierno y minimalista que representan la escena del pesebre con la Sagrada Familia, animales y pastores. Elementos compactos con detalles delicados ideales para la temporada navideña.

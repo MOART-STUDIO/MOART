@@ -1,5 +1,5 @@
 ---
-name: Pieza 12
+name: Busto de Ganesha
 collection: Colección III — Relieves
 category: Relieves
 material: Marmolina
@@ -13,4 +13,4 @@ images:
 order: 12
 ---
 
-Pieza de marmolina moldeada y pulida a mano en nuestro taller. Hecha por encargo, firmada en la base y pensada para habitar el espacio con calma.
+Detallada efigie de la divinidad hindúa con corona ornamentada, marcas tradicionales en la frente y una trompa que descansa sobre un cuenco. Aporta un sentido de sabiduría, prosperidad y espiritualidad.

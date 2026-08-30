@@ -1,5 +1,5 @@
 ---
-name: Pieza 27
+name: San Miguel Arcángel Triunfante
 collection: Colección I — Figuras
 category: Figuras
 material: Marmolina
@@ -13,4 +13,4 @@ images:
 order: 27
 ---
 
-Pieza de marmolina moldeada y pulida a mano en nuestro taller. Hecha por encargo, firmada en la base y pensada para habitar el espacio con calma.
+Poderosa representación del arcángel con grandes alas desplegadas, sosteniendo una espada en alto y un escudo circular. Viste armadura detallada y pisa la figura del demonio a sus pies sobre un pedestal de nubes y columnas.

@@ -1,5 +1,5 @@
 ---
-name: Pieza 15
+name: Minnie Mouse con Brazos Abiertos
 collection: Colección I — Figuras
 category: Figuras
 material: Marmolina
@@ -13,4 +13,4 @@ images:
 order: 15
 ---
 
-Pieza de marmolina moldeada y pulida a mano en nuestro taller. Hecha por encargo, firmada en la base y pensada para habitar el espacio con calma.
+Estilización moderna del clásico personaje animado con su característico lazo y falda con volantes en una postura de bienvenida. Un detalle divertido y encantador para espacios juveniles o coleccionistas.

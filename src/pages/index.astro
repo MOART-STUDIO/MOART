@@ -251,23 +251,13 @@ import ImagenFondo from "@/assets/fondorepisa.jpg";
             >la marmolina</span
           >.
         </h2>
-        <div class="grid gap-x-8 gap-y-10 md:grid-cols-3">
+        <div class="mx-auto max-w-md text-center">
           {
             [
               {
                 name: "Marmolina blanca",
                 tag: "Pura · luminosa",
                 copy: "Marmolina de carga mineral clara, sin pigmentos. Mate y serena, deja que la luz recorra cada curva.",
-              },
-              {
-                name: "Marmolina tonalizada",
-                tag: "Cálida · profunda",
-                copy: "Una reserva pequeña con óxidos naturales. Usada solo donde el volumen lo pide, para dar peso a la pieza.",
-              },
-              {
-                name: "Marmolina y base",
-                tag: "Sólida · anclada",
-                copy: "Piezas que descansan sobre una base de madera noble. La materia decide la forma, no al revés.",
               },
             ].map((material) => (
               <div class="space-y-3 pt-2">

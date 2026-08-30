@@ -1,5 +1,5 @@
 ---
-name: Pieza 5
+name: Estatua de San Miguel Arcángel (Balanza)
 collection: Colección I — Figuras
 category: Figuras
 material: Marmolina
@@ -13,4 +13,4 @@ images:
 order: 5
 ---
 
-Pieza de marmolina moldeada y pulida a mano en nuestro taller. Hecha por encargo, firmada en la base y pensada para habitar el espacio con calma.
+San Miguel Arcángel portando una lanza y una balanza dorada para simbolizar la justicia divina. Posee alas extendidas y una detallada postura triunfante sobre el mal.

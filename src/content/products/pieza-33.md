@@ -1,5 +1,5 @@
 ---
-name: Pieza 33
+name: Virgen con el Niño
 collection: Colección I — Figuras
 category: Figuras
 material: Marmolina
@@ -13,4 +13,4 @@ images:
 order: 33
 ---
 
-Pieza de marmolina moldeada y pulida a mano en nuestro taller. Hecha por encargo, firmada en la base y pensada para habitar el espacio con calma.
+Virgen con el Niño Jesús coronados, con túnica y manto decorados con relieves florales. La Madre sostiene un rosario mientras carga al Niño, ambos con expresión majestuosa sobre una base ornamentada.

@@ -1,5 +1,5 @@
 ---
-name: Pieza 2
+name: Estatua de Buda Sentado (Diseño Tradicional)
 collection: Colección III — Relieves
 category: Relieves
 material: Marmolina
@@ -13,4 +13,4 @@ images:
 order: 2
 ---
 
-Pieza de marmolina moldeada y pulida a mano en nuestro taller. Hecha por encargo, firmada en la base y pensada para habitar el espacio con calma.
+Buda sentado en postura de meditación con las manos cruzadas en el regazo y túnica texturizada. Transmite una atmósfera de paz, serenidad y equilibrio espiritual.

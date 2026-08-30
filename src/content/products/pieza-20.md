@@ -1,5 +1,5 @@
 ---
-name: Pieza 20
+name: Nacimiento Protegido por un Ángel
 collection: Colección III — Relieves
 category: Relieves
 material: Marmolina
@@ -13,4 +13,4 @@ images:
 order: 20
 ---
 
-Pieza de marmolina moldeada y pulida a mano en nuestro taller. Hecha por encargo, firmada en la base y pensada para habitar el espacio con calma.
+Composición emotiva donde un gran ángel con alas desplegadas resguarda y bendice a la Sagrada Familia y al Niño en el pesebre. Una obra de gran formato que transmite profunda protección y paz espiritual.

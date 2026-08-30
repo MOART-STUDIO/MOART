@@ -1,5 +1,5 @@
 ---
-name: Pieza 36
+name: Muñecos de Nieve Reposteros
 collection: Colección II — Navidad
 category: Navidad
 material: Marmolina
@@ -13,4 +13,4 @@ images:
 order: 36
 ---
 
-Pieza de marmolina moldeada y pulida a mano en nuestro taller. Hecha por encargo, firmada en la base y pensada para habitar el espacio con calma.
+Par de figuras de muñecos de nieve reposteros con gorro de invierno, delantal y bufanda. Sostienen bandejas con galletas de jengibre y utensilios de cocina, creando un ambiente festivo y cálido.

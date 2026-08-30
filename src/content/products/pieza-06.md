@@ -1,5 +1,5 @@
 ---
-name: Pieza 6
+name: Estatua de Buda Sentado con Flor de Loto
 collection: Colección III — Relieves
 category: Relieves
 material: Marmolina
@@ -13,4 +13,4 @@ images:
 order: 6
 ---
 
-Pieza de marmolina moldeada y pulida a mano en nuestro taller. Hecha por encargo, firmada en la base y pensada para habitar el espacio con calma.
+Buda sentado con flor de loto representado con una pequeña flor de loto esculpida en sus manos y la mano derecha en gesto de bendición. Diseño armónico que simboliza pureza y despertar espiritual.

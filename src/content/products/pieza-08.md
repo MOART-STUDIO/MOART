@@ -1,5 +1,5 @@
 ---
-name: Pieza 8
+name: Sagrada Familia Celeste
 collection: Colección II — Navidad
 category: Navidad
 material: Marmolina
@@ -13,4 +13,4 @@ images:
 order: 8
 ---
 
-Pieza de marmolina moldeada y pulida a mano en nuestro taller. Hecha por encargo, firmada en la base y pensada para habitar el espacio con calma.
+Pieza en blanco representando a José y María sosteniendo al niño con acabados artesanales llenos de ternura.
