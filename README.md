@@ -2,7 +2,7 @@
 
 [![Vista previa del tema MOART](preview.webp)](https://moart.example/)
 
-![Astro 6](https://img.shields.io/badge/Astro-6.4.8-ff5d01?style=for-the-badge&logo=astro&logoColor=white)
+![Astro 7](https://img.shields.io/badge/Astro-7.2.9-ff5d01?style=for-the-badge&logo=astro&logoColor=white)
 ![Tailwind CSS 4](https://img.shields.io/badge/Tailwind_CSS-4.1-38bdf8?style=for-the-badge&logo=tailwindcss&logoColor=white)
 ![TypeScript](https://img.shields.io/badge/TypeScript-strict-3178c6?style=for-the-badge&logo=typescript&logoColor=white)
 ![MIT License](https://img.shields.io/badge/License-MIT-27272a?style=for-the-badge)
@@ -27,7 +27,7 @@ MOART es un tema editorial y sereno de Astro para un pequeño estudio taller de 
 
 ## Tech Stack
 
-- Astro 6
+- Astro 7
 - Tailwind CSS 4
 - TypeScript (strict)
 - Static output
@@ -87,15 +87,27 @@ dimensions: 32 × 28 × 54 cm
 finish: Mate natural
 leadTime: 4–6 semanas
 images:
-  - ../../assets/moart-aurora-1.jpg
-  - ../../assets/moart-aurora-2.jpg
+  - /assets/catalogo/catalogo-01.jpg
+  - /assets/catalogo/catalogo-02.jpg
 order: 2
 ---
 
 Escultura figurativa en marmolina, Aurora interpreta el gesto de un cuerpo en equilibrio. Cada pieza se moldea y pule a mano en nuestro taller.
 ```
 
-Las imágenes de producto deben estar en `src/assets/` para que Astro las optimice. Las categorías y materiales se derivan automáticamente de los archivos de producto y aparecen como filtros del catálogo.
+Las imágenes de producto viven en `src/assets/catalogo/` y se referencian en el frontmatter con su ruta pública `/assets/catalogo/...`. Durante el build, `src/data/product-images.ts` las resuelve a imágenes optimizadas por Astro. Las categorías y materiales se derivan automáticamente de los archivos de producto y aparecen como filtros del catálogo.
+
+## Content Management (Pages CMS)
+
+El tema incluye `.pages.yml` en la raíz para gestionar el catálogo desde [Pages CMS](https://pagescms.org) sin tocar Markdown a mano: puedes crear y editar esculturas, y subir imágenes desde el navegador.
+
+1. Sube el repositorio a GitHub. `.pages.yml` debe estar en la rama por defecto para que Pages CMS lo detecte.
+2. Entra en <https://pagescms.org>, autoriza con GitHub y selecciona el repositorio.
+3. En la pestaña **Products**, crea, edita o borra esculturas. Cada producto se guarda como un `.md` nuevo en `src/content/products/` y el nombre del archivo se convierte en el slug de la URL.
+4. En el campo *images*, usa **Añadir imagen** para subir desde el navegador. Los archivos se guardan en `src/assets/catalogo/` y la ruta `/assets/catalogo/...` se escribe automáticamente en el frontmatter; Astro las optimiza en build.
+5. Publica el commit con Git y despliega como cualquier otra versión del sitio.
+
+Para desarrollar el CMS en local, sigue la [guía de instalación de Pages CMS](https://pagescms.org/docs/).
 
 ## Pages
 
