@@ -21,53 +21,7 @@ import ImagenFondo from "@/assets/fondorepisa.jpg";
   <main id="main-content">
     <h1 class="sr-only">MOART — esculturas de autor en marmolina</h1>
     <section class="relative overflow-hidden bg-base">
-      <!-- <div class="md:hidden">
-        <div class="aspect-[4/3] w-full">
-          
-          <Image
-            src={ImagenFondo}
-            alt="Escultura MOART en marmolina"
-            width={2240}
-            height={1024}
-            loading="eager"
-            decoding="sync"
-            class="h-full w-full object-cover object-right"
-          />
-        </div>
-        <div class="space-y-6 px-6 py-12">
-          <p
-            class="flex items-center gap-3 text-[11px] uppercase tracking-[0.3em] text-faded"
-          >
-            <span class="inline-block h-px w-8 bg-ink/40"></span>
-            Colombia · Desde 2021
-          </p>
-          <p class="text-balance font-serif text-4xl leading-[0.95]">
-            Arte de
-            <br />
-            <span class="italic text-accent">marmolina en Medellín.</span>
-          </p>
-          <p class="max-w-[48ch] text-pretty leading-relaxed text-faded">
-            Un catálogo sereno de figuras en marmolina, moldeados con detalle y
-            pulidos con calma para trascender el espacio que los habita.
-          </p>
-          <div
-            class="flex flex-col items-start gap-4 pt-2 sm:flex-row sm:items-center"
-          >
-            <a
-              href="/catalog"
-              class="inline-flex items-center gap-2 text-[11px] uppercase tracking-[0.2em] text-faded transition-colors hover:text-ink"
-            >
-              Ver todo el catálogo →
-            </a>
-            <a
-              href="/about"
-              class="text-[11px] uppercase tracking-[0.2em] text-faded transition-colors hover:text-ink"
-            >
-              Nuestro taller →
-            </a>
-          </div>
-        </div>
-      </div> -->
+      
 
       <div class="relative h-[88vh] min-h-160 w-full">
         <!-- Imagen de fondo para escritorio -->
@@ -239,7 +193,7 @@ import ImagenFondo from "@/assets/fondorepisa.jpg";
       </div>
     </section>
 
-    <section class="mx-auto mt-32 max-w-screen-xl px-6 md:mt-48">
+    <section class="mx-auto mt-32 max-w-7xl px-6 md:mt-48">
       <div class="border-t border-line pt-12">
         <p class="mb-4 text-[11px] uppercase tracking-[0.3em] text-faded">
           Una sola materia
@@ -275,7 +229,7 @@ import ImagenFondo from "@/assets/fondorepisa.jpg";
       </div>
     </section>
 
-    <section class="mx-auto mt-32 max-w-screen-xl px-6 md:mt-48">
+    <section class="mx-auto mt-32 max-w-7xl px-6 md:mt-48">
       <div class="border-t border-line pt-12">
         <div class="mx-auto max-w-xl space-y-6 text-center">
           <p class="text-[11px] uppercase tracking-[0.3em] text-faded">
@@ -331,23 +285,6 @@ import ImagenFondo from "@/assets/fondorepisa.jpg";
         </div>
       </div>
     </section>
-
-    <script
-      is:inline
-      type="application/ld+json"
-      set:html={JSON.stringify({
-        "@context": "https://schema.org",
-        "@type": "Organization",
-        name: "MOART",
-        url: Astro.site?.href ?? "https://moart.example/",
-        slogan: "Arte de autor en marmolina",
-        address: {
-          "@type": "PostalAddress",
-          addressRegion: "Colombia",
-          addressCountry: "ES",
-        },
-      })}
-    />
 
     <script is:inline>
       const form = document.querySelector("[data-newsletter-form]");

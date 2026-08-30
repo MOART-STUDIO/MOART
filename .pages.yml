@@ -1,0 +1,83 @@
+media:
+  - name: catalogo
+    label: Imágenes de catálogo
+    input: src/assets/catalogo
+    output: /assets/catalogo
+    extensions: [jpg, jpeg, png, webp]
+    rename: safe
+
+content:
+  - name: products
+    label: Productos
+    type: collection
+    path: src/content/products
+    format: yaml-frontmatter
+    filename:
+      template: "{primary}.md"
+      field: false
+    fields:
+      - name: name
+        label: Nombre
+        type: string
+        required: true
+      - name: collection
+        label: Colección
+        type: select
+        options:
+          values:
+            - Colección I — Figuras
+            - Colección II — Navidad
+            - Colección III — Relieves
+      - name: category
+        label: Categoría
+        type: select
+        options:
+          values: [Figuras, Navidad, Relieves]
+      - name: material
+        label: Material
+        type: string
+      - name: price
+        label: Precio (COP)
+        type: number
+        required: true
+        options:
+          min: 0
+      - name: shortDescription
+        label: Descripción corta
+        type: string
+      - name: dimensions
+        label: Dimensiones
+        type: string
+      - name: finish
+        label: Acabado
+        type: select
+        options:
+          values: [Mate natural]
+      - name: leadTime
+        label: Tiempo de entrega
+        type: string
+      - name: images
+        label: Imágenes
+        type: image
+        options:
+          media: catalogo
+          multiple:
+            max: 6
+          unique: true
+      - name: order
+        label: Orden
+        type: number
+        options:
+          min: 0
+      - name: body
+        label: Descripción
+        type: rich-text
+        options:
+          format: markdown
+    view:
+      fields: [name, collection, category, price, order]
+      primary: name
+      sort: [order, name, price]
+      default:
+        sort: order
+        order: asc

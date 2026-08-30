@@ -1,9 +1,12 @@
 import { getCollection, type CollectionEntry } from "astro:content";
+import type { ImageMetadata } from "astro";
+import { resolveProductImages } from "./product-images.js";
 
 type ProductEntry = CollectionEntry<"products">;
-export type Product = ProductEntry["data"] & {
+export type Product = Omit<ProductEntry["data"], "images"> & {
   slug: string;
   description: string;
+  images: ImageMetadata[];
 };
 
 function slugFromEntry(entry: ProductEntry): string {
@@ -25,6 +28,7 @@ export async function getProducts(): Promise<Product[]> {
       slug: slugFromEntry(entry),
       description: descriptionFromEntry(entry),
       ...entry.data,
+      images: resolveProductImages(entry.data.images),
     }))
     .sort(byOrderThenName);
 }

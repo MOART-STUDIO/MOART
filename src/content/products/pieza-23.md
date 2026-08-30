@@ -9,7 +9,7 @@ dimensions: 40 × 30 × 50 cm
 finish: Mate natural
 leadTime: 4–6 semanas
 images:
-  - ../../assets/catalogo/catalogo-23.jpg
+  - /assets/catalogo/catalogo-23.jpg
 order: 23
 ---
 
