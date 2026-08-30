@@ -3,7 +3,7 @@ name: Estatua de Buda Sentado (Diseño Tradicional)
 collection: Colección III — Relieves
 category: Relieves
 material: Marmolina
-price: 24000
+price: 41000
 shortDescription: Relieve de marmolina
 dimensions: 40 × 30 × 50 cm
 finish: Mate natural
