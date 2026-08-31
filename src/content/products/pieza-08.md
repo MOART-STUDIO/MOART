@@ -3,7 +3,7 @@ name: Sagrada Familia Celeste
 collection: Colección II — Navidad
 category: Navidad
 material: Marmolina
-price: 680
+price: 136000
 shortDescription: Pieza de navidad en marmolina
 dimensions: 40 × 30 × 50 cm
 finish: Mate natural
@@ -12,5 +12,4 @@ images:
   - /assets/catalogo/catalogo-08.jpg
 order: 8
 ---
-
 Pieza en blanco representando a José y María sosteniendo al niño con acabados artesanales llenos de ternura.
