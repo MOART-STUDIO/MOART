@@ -5,7 +5,7 @@ category: Figuras
 material: Marmolina
 price: 75000
 shortDescription: Figura de marmolina
-dimensions: 20x50x140
+dimensions: 18x50x35
 finish: Mate natural
 leadTime: 4-6 dias
 images:
