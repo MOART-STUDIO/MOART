@@ -3,7 +3,7 @@ name: Arcangel San Miguel Premium
 collection: Colección I — Figuras
 category: Figuras
 material: Marmolina
-price: 75000
+price: 160000
 shortDescription: Figura de marmolina
 dimensions: 18x50x35
 finish: Mate natural
