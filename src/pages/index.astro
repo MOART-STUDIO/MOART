@@ -1,7 +1,8 @@
 ---
 import { Image } from "astro:assets";
-import ProductCard from "@/components/ProductCard.astro";
+import ImagenFondo from "@/assets/fondorepisa.jpg";
 import BaseLayout from "@/layouts/BaseLayout.astro";
+import ProductCard from "@/components/ProductCard.astro";
 import { formatPrice, getProducts } from "@/data/products.js";
 import { withBase } from "@/utils/paths.js";
 
@@ -9,9 +10,7 @@ const products = await getProducts();
 const featured = ["pieza-01", "pieza-02", "pieza-03"]
   .map((slug) => products.find((product) => product.slug === slug))
   .filter(Boolean);
-const solo =
-  products.find((product) => product.slug === "arcangel-san-miguel") ?? products[0];
-import ImagenFondo from "@/assets/fondorepisa.jpg";
+const solo = products.find((product) => product.slug === "arcangel-san-miguel") ?? products[0];
 ---
 
 <BaseLayout

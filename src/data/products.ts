@@ -67,7 +67,7 @@ export function getProductFilters(products: Product[]): {
 }
 
 export function formatPrice(value: number): string {
-  return new Intl.NumberFormat("es-CO", {
+  return new Intl.NumberFormat("CO", {
     style: "currency",
     currency: "COP",
     currencyDisplay: "code",
@@ -88,5 +88,6 @@ export function productForJson(product: Product) {
     dimensions: product.dimensions,
     finish: product.finish,
     leadTime: product.leadTime,
+    order: product.order
   };
 }
