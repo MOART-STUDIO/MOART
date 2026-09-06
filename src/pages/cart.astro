@@ -139,15 +139,15 @@ const cartProducts = products.map(productForJson);
         <div class="space-y-3">
           <div class="flex justify-between text-sm">
             <span class="text-faded">Subtotal</span>
-            <span class="tabular-nums" data-cart-subtotal>$ 0</span>
+            <span class="tabular-nums" data-cart-subtotal>COP 0</span>
           </div>
           <div class="flex justify-between text-sm">
             <span class="text-faded">Entrega con cuidado</span>
-            <span class="tabular-nums" data-cart-shipping>$ 0</span>
+            <span class="tabular-nums" data-cart-shipping>COP 0</span>
           </div>
           <div class="flex items-baseline justify-between border-t border-line pt-3">
             <span class="text-sm">Total</span>
-            <span class="font-serif text-3xl tabular-nums" data-cart-total>$ 0</span>
+            <span class="font-serif text-3xl tabular-nums" data-cart-total>COP 0</span>
           </div>
         </div>
         <div class="space-y-3">
@@ -176,8 +176,8 @@ const cartProducts = products.map(productForJson);
       products.map((product) => (
         <template data-product-template={product.slug}>
           <li class="flex gap-6 py-8" data-cart-row={product.slug}>
-            <a href={withBase(`/products/${product.slug}`)} class="block size-28 shrink-0 overflow-hidden rounded-[min(1vw,12px)] bg-paper md:size-32">
-              <Image src={product.images[0]} alt={product.name} width={320} height={320} format="webp" loading="eager" class="h-full w-full object-cover" />
+            <a href={withBase(`/products/${product.slug}`)} class="block size-28 shrink-0 overflow-hidden rounded-[min(1vw,12px)] bg-paper p-2 md:size-32">
+              <Image src={product.images[0]} alt={product.name} width={320} height={426} format="webp" loading="eager" class="h-full w-full object-contain object-center" />
             </a>
             <div class="flex min-w-0 flex-1 flex-col justify-between">
               <div class="flex justify-between gap-4">
@@ -235,6 +235,7 @@ const cartProducts = products.map(productForJson);
       new Intl.NumberFormat("es-CO", {
         style: "currency",
         currency: "COP",
+        currencyDisplay: "code",
         maximumFractionDigits: 0,
       }).format(value);
 

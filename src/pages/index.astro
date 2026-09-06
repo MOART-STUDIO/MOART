@@ -10,7 +10,7 @@ const featured = ["pieza-01", "pieza-02", "pieza-03"]
   .map((slug) => products.find((product) => product.slug === slug))
   .filter(Boolean);
 const solo =
-  products.find((product) => product.slug === "pieza-04") ?? products[0];
+  products.find((product) => product.slug === "arcangel-san-miguel") ?? products[0];
 import ImagenFondo from "@/assets/fondorepisa.jpg";
 ---
 
@@ -145,11 +145,11 @@ import ImagenFondo from "@/assets/fondorepisa.jpg";
               <Image
                 src={solo.images[0]}
                 alt={`${solo.name} — ${solo.shortDescription}`}
-                width={1600}
-                height={1100}
+                width={900}
+                height={1200}
                 loading="lazy"
                 format="webp"
-                class="h-full w-full object-contain transition-transform duration-[1400ms] ease-out group-hover:scale-[1.02]"
+                class="h-full w-full object-contain object-center transition-transform duration-[1400ms] ease-out group-hover:scale-[1.02]"
               />
             </a>
           </div>

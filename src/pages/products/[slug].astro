@@ -34,18 +34,18 @@ const productUrl = new URL(`/products/${product.slug}`, Astro.site ?? Astro.url.
   <div class="mx-auto max-w-screen-xl px-6 py-12">
     <section class="grid grid-cols-1 items-start gap-16 lg:grid-cols-12">
       <div class="space-y-6 lg:col-span-7" data-product-gallery>
-        <div class="relative aspect-[4/5] overflow-hidden rounded-[min(1vw,12px)] bg-paper">
+        <div class="relative aspect-[3/4] overflow-hidden rounded-[min(1vw,12px)] bg-paper">
           {
             product.images.map((image, index) => (
               <div class:list={["absolute inset-0", index !== 0 && "hidden"]} data-gallery-panel={index}>
                 <Image
                   src={image}
                   alt={`${product.name} — view ${index + 1}`}
-                  width={1440}
-                  height={1800}
+                  width={1080}
+                  height={1440}
                   format="webp"
                   loading={index === 0 ? "eager" : "lazy"}
-                  class="moart-fade-in h-full w-full object-cover"
+                  class="moart-fade-in h-full w-full object-contain object-center"
                 />
               </div>
             ))
@@ -57,14 +57,14 @@ const productUrl = new URL(`/products/${product.slug}`, Astro.site ?? Astro.url.
               <button
                 type="button"
                 class:list={[
-                  "aspect-square overflow-hidden rounded-[min(1vw,12px)] bg-paper ring-1 transition-all",
+                  "aspect-[3/4] overflow-hidden rounded-[min(1vw,12px)] bg-paper ring-1 transition-all",
                   index === 0 ? "ring-ink" : "ring-line hover:ring-ink/40",
                 ]}
                 data-gallery-thumb={index}
                 aria-label={`Show view ${index + 1}`}
                 aria-pressed={index === 0 ? "true" : "false"}
               >
-                <Image src={image} alt="" width={360} height={360} format="webp" loading="lazy" class="h-full w-full object-cover" />
+                <Image src={image} alt="" width={360} height={480} format="webp" loading="lazy" class="h-full w-full object-contain object-center" />
               </button>
             ))
           }
