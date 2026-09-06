@@ -7,10 +7,10 @@ import { formatPrice, getProducts } from "@/data/products.js";
 import { withBase } from "@/utils/paths.js";
 
 const products = await getProducts();
-const featured = ["pieza-01", "pieza-02", "pieza-03"]
+const featured = ["pieza-46", "pieza-02", "pieza-03"]
   .map((slug) => products.find((product) => product.slug === slug))
   .filter(Boolean);
-const solo = products.find((product) => product.slug === "arcangel-san-miguel") ?? products[0];
+const solo = products.find((product) => product.slug === "pieza-46") ?? products[0];
 ---
 
 <BaseLayout
