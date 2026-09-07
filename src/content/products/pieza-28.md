@@ -4,7 +4,7 @@ collection: Colección III — Relieves
 category: Relieves
 material: Marmolina
 price: 75000
-packagingPrice: 99999
+packagingPrice: 8000
 shortDescription: Relieve de marmolina
 dimensions: 40 × 30 × 50 cm
 finish: Mate natural
