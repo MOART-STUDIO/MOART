@@ -5,7 +5,7 @@ category: Figuras
 material: Marmolina
 price: 0
 shortDescription: Figura de marmolina
-dimensions: 13cm
+dimensions: 10cm
 finish: Mate natural
 leadTime: 4–6 dias
 images:
