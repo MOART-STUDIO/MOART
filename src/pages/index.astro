@@ -244,12 +244,14 @@ const solo = products.find((product) => product.slug === "pieza-46") ?? products
             taller a nuevos encargos — enviamos una breve nota.
           </p>
 
-          <form class="space-y-3 pt-4 text-left" data-newsletter-form>
+          <form class="space-y-3 pt-4 text-left" action="https://api.web3forms.com/submit" method="POST">
             <div class="flex flex-col gap-3 sm:flex-row">
+              <input type="hidden" name="access_key" value="8a62553e-96d2-4bbb-ae27-c6ac7bf54e3e">
+              <input type="hidden" name="subject" value="Formulario de Inicio de MOART">
               <label class="sr-only" for="first-name">Nombre</label>
               <input
-                id="first-name"
-                name="firstName"
+                id="Nombre"
+                name="Nombre"
                 type="text"
                 required
                 maxlength="80"
