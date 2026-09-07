@@ -6,7 +6,7 @@ import { withBase } from "@/utils/paths.js";
 
 export async function getStaticPaths({ paginate }: any) {
   const allProducts = await getProducts();
-  return paginate(allProducts, { pageSize: 46 });
+  return paginate(allProducts, { pageSize: 48 });
 }
 
 const { page } = Astro.props as any;
@@ -16,7 +16,7 @@ const isFirstPage = page.currentPage === 1;
 const title = isFirstPage ? "El catálogo — MOART" : `El catálogo — Página ${page.currentPage} — MOART`;
 const description = isFirstPage
   ? "Explora todas las esculturas del catálogo de MOART. Filtra por categoría y material — marmolina moldeada a mano. Hechas por encargo."
-  : `Catálogo MOART — Página ${page.currentPage} de ${page.lastPage}. Piezas ${page.start + 1} a ${page.end} de ${page.total}.`;
+  : `Catálogo MOART — Página ${page.currentPage} de ${page.lastPage}. Piezas ${page.start + 1} a ${page.end + 1} de ${page.total}.`;
 ---
 
 <BaseLayout title={title} description={description}>
@@ -121,7 +121,7 @@ const description = isFirstPage
         </nav>
       )}
       <p class="mt-4 text-center text-xs uppercase tracking-widest text-faded">
-        Mostrando {page.start + 1}–{page.end} de {page.total} piezas
+        Mostrando {page.start + 1}–{page.end + 1} de {page.total} piezas
       </p>
     </div>
   </main>
