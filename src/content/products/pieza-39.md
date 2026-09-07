@@ -3,8 +3,8 @@ name: Guepardos en Acecho
 collection: Colección I — Figuras
 category: Figuras
 material: Marmolina
-price: 5000
-packagingPrice: 99999
+price: 37000
+packagingPrice: 5000
 shortDescription: Figura de marmolina
 dimensions: 40 × 30 × 50 cm
 finish: Mate natural
