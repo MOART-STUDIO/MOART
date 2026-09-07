@@ -1,10 +1,10 @@
 ---
-name: Set de Tres Figuras "Jacks"
+name: Par de Catapiz
 collection: Colección I — Figuras
 category: Figuras
 material: Marmolina
-price: 6000
-packagingPrice: 99999
+price: 60000
+packagingPrice: 7000
 shortDescription: Figura de marmolina
 dimensions: 40 × 30 × 50 cm
 finish: Mate natural
