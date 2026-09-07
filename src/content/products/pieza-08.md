@@ -4,6 +4,7 @@ collection: Colección II — Navidad
 category: Navidad
 material: Marmolina
 price: 136000
+packagingPrice: 99999
 shortDescription: Pieza de navidad en marmolina
 dimensions: 40 × 30 × 50 cm
 finish: Mate natural

@@ -83,6 +83,7 @@ export function productForJson(product: Product) {
     category: product.category,
     material: product.material,
     price: product.price,
+    packagingPrice: product.packagingPrice,
     shortDescription: product.shortDescription,
     description: product.description,
     dimensions: product.dimensions,

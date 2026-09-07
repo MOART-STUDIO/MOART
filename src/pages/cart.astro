@@ -154,8 +154,8 @@ const WEB3FORMS_ACCESS_KEY = "8a62553e-96d2-4bbb-ae27-c6ac7bf54e3e";
             <span class="tabular-nums" data-cart-subtotal>COP 0</span>
           </div>
           <div class="flex justify-between text-sm">
-            <span class="text-faded">Entrega con cuidado</span>
-            <span class="tabular-nums" data-cart-shipping>COP 0</span>
+            <span class="text-faded">Empaque</span>
+            <span class="tabular-nums" data-cart-packaging>COP 0</span>
           </div>
           <div class="flex items-baseline justify-between border-t border-line pt-3">
             <span class="text-sm">Total</span>
@@ -211,7 +211,16 @@ const WEB3FORMS_ACCESS_KEY = "8a62553e-96d2-4bbb-ae27-c6ac7bf54e3e";
                 </div>
                 <span class="whitespace-nowrap text-sm tabular-nums" data-row-line-price>{formatPrice(product.price)}</span>
               </div>
-              <div class="flex items-center justify-between pt-4">
+              <label class="mt-3 inline-flex w-fit cursor-pointer items-center gap-2 text-[11px] uppercase tracking-widest text-faded transition-colors hover:text-ink">
+                <input
+                  type="checkbox"
+                  class="size-4 accent-[var(--color-ink)]"
+                  aria-label={`Añadir empaque para ${product.name}`}
+                  data-cart-packaging-check
+                />
+                <span>Empaque premium · +{formatPrice(product.packagingPrice)}</span>
+              </label>
+              <div class="flex items-center justify-between pt-3">
                 <div class="inline-flex items-center overflow-hidden rounded-full border border-line">
                 <button
                   type="button"
@@ -373,7 +382,7 @@ const WEB3FORMS_ACCESS_KEY = "8a62553e-96d2-4bbb-ae27-c6ac7bf54e3e";
     const list = document.querySelector("[data-cart-list]");
     const primary = document.querySelector("[data-cart-primary]");
     const subtotalNode = document.querySelector("[data-cart-subtotal]");
-    const shippingNode = document.querySelector("[data-cart-shipping]");
+    const packagingNode = document.querySelector("[data-cart-packaging]");
     const totalNode = document.querySelector("[data-cart-total]");
 
     function knownRows() {
@@ -384,8 +393,11 @@ const WEB3FORMS_ACCESS_KEY = "8a62553e-96d2-4bbb-ae27-c6ac7bf54e3e";
 
     function cartTotals(rows) {
       const subtotal = rows.reduce((total, row) => total + row.product.price * row.item.quantity, 0);
-      const shipping = rows.length > 0 ? 120 : 0;
-      return { subtotal, shipping, total: subtotal + shipping };
+      const packaging = rows.reduce(
+        (total, row) => total + (row.item.packaging ? row.product.packagingPrice * row.item.quantity : 0),
+        0,
+      );
+      return { subtotal, packaging, total: subtotal + packaging };
     }
 
     function whatsappMessage(rows, totals) {
@@ -394,11 +406,11 @@ const WEB3FORMS_ACCESS_KEY = "8a62553e-96d2-4bbb-ae27-c6ac7bf54e3e";
         "",
         ...rows.map(
           ({ item, product }) =>
-            `• _${product.name}_ | *cantidad de: ${item.quantity}* | *Id de pieza: ${product.order}* | Total de pieza: ${formatPrice(product.price * item.quantity)}`,
+            `• _${product.name}_ | *cantidad de: ${item.quantity}* | *Id de pieza: ${product.order}* | Empacada: ${item.packaging ? "Sí" : "No"} | Total de pieza: ${formatPrice(product.price * item.quantity + (item.packaging ? product.packagingPrice * item.quantity : 0))}`,
         ),
         "",
         `Subtotal: ${formatPrice(totals.subtotal)}`,
-        `Entrega con cuidado: ${formatPrice(totals.shipping)}`,
+        `Empaque: ${formatPrice(totals.packaging)}`,
         `*Total: ${formatPrice(totals.total)}*`,
         "",
         "Quedo atento a tu confirmación. ¡Gracias!",
@@ -407,14 +419,14 @@ const WEB3FORMS_ACCESS_KEY = "8a62553e-96d2-4bbb-ae27-c6ac7bf54e3e";
 
     function render() {
       const rows = knownRows();
-      const { subtotal, shipping, total } = cartTotals(rows);
+      const { subtotal, packaging, total } = cartTotals(rows);
 
       title.textContent = rows.length === 0 ? "Vacío por ahora." : "Revisa tu selección.";
       empty.classList.toggle("hidden", rows.length !== 0);
       filled.classList.toggle("hidden", rows.length === 0);
 
       subtotalNode.textContent = formatPrice(subtotal);
-      shippingNode.textContent = formatPrice(shipping);
+      packagingNode.textContent = formatPrice(packaging);
       totalNode.textContent = formatPrice(total);
 
       list.replaceChildren();
@@ -423,6 +435,11 @@ const WEB3FORMS_ACCESS_KEY = "8a62553e-96d2-4bbb-ae27-c6ac7bf54e3e";
         const row = template.content.firstElementChild.cloneNode(true);
         row.querySelector("[data-row-quantity]").textContent = String(item.quantity);
         row.querySelector("[data-row-line-price]").textContent = formatPrice(product.price * item.quantity);
+        const packagingCheck = row.querySelector("[data-cart-packaging-check]");
+        packagingCheck.checked = Boolean(item.packaging);
+        packagingCheck.addEventListener("change", () =>
+          window.MoartCart.setPackaging(item.slug, packagingCheck.checked),
+        );
         row.querySelector('[data-cart-action="decrease"]').addEventListener("click", () => window.MoartCart.setQuantity(item.slug, item.quantity - 1));
         row.querySelector('[data-cart-action="increase"]').addEventListener("click", () => window.MoartCart.setQuantity(item.slug, item.quantity + 1));
         row.querySelector('[data-cart-action="remove"]').addEventListener("click", () => window.MoartCart.remove(item.slug));
@@ -510,11 +527,11 @@ const WEB3FORMS_ACCESS_KEY = "8a62553e-96d2-4bbb-ae27-c6ac7bf54e3e";
         "",
         ...rows.map(
           ({ item, product }) =>
-            `• ${product.name} | id de pieza: ${product.order}\n | Cantidad: ${item.quantity}\n | Total pieza: ${formatPrice(product.price * item.quantity)}`,
+            `• ${product.name} | id de pieza: ${product.order}\n | Cantidad: ${item.quantity}\n | Total pieza: ${formatPrice(product.price * item.quantity + (item.packaging ? product.packagingPrice * item.quantity : 0))}`,
         ),
         "",
         `Subtotal: ${formatPrice(totals.subtotal)}`,
-        `Entrega con cuidado: ${formatPrice(totals.shipping)}`,
+        `Empaque: ${formatPrice(totals.packaging)}`,
         `Total: ${formatPrice(totals.total)}`,
       ].join("\n");
     }

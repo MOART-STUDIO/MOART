@@ -83,7 +83,7 @@ const ogImage = image ? new URL(image.src ?? image, Astro.site ?? Astro.url.orig
               writeCart(items);
               return;
             }
-            writeCart([...items, { slug, quantity }]);
+            writeCart([...items, { slug, quantity, packaging: false }]);
           },
           remove(slug) {
             writeCart(readCart().filter((item) => item.slug !== slug));
@@ -94,6 +94,9 @@ const ogImage = image ? new URL(image.src ?? image, Astro.site ?? Astro.url.orig
               return;
             }
             writeCart(readCart().map((item) => (item.slug === slug ? { ...item, quantity } : item)));
+          },
+          setPackaging(slug, enabled) {
+            writeCart(readCart().map((item) => (item.slug === slug ? { ...item, packaging: enabled } : item)));
           },
           updateBadges,
         };

@@ -4,6 +4,7 @@ collection: Colección I — Figuras
 category: Figuras
 material: Marmolina
 price: 133000
+packagingPrice: 99999
 shortDescription: Figura de marmolina
 dimensions: 40 × 30 × 50 cm
 finish: Mate natural

@@ -42,6 +42,11 @@ content:
         required: true
         options:
           min: 0
+      - name: packagingPrice
+        label: Precio de empaque (COP)
+        type: number
+        options:
+          min: 0
       - name: shortDescription
         label: Descripción corta
         type: string
@@ -75,7 +80,7 @@ content:
         options:
           format: markdown
     view:
-      fields: [name, collection, category, price, order]
+      fields: [name, collection, category, price, packagingPrice, order]
       primary: name
       sort: [order, name, price]
       default:
