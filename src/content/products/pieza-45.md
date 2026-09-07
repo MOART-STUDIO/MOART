@@ -3,7 +3,7 @@ name: Vaca Escultórica
 collection: Colección I — Figuras
 category: Figuras
 material: Marmolina
-price: 34000
+price: 35000
 packagingPrice: 5000
 shortDescription: Figura de marmolina
 dimensions: 40 × 30 × 50 cm
