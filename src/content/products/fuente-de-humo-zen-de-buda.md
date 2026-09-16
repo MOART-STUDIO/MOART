@@ -3,7 +3,7 @@ name: Fuente de humo zen de Buda
 collection: Colección III — Relieves
 category: Relieves
 material: Marmolina
-price: 0
+price: 17000
 shortDescription: Relieve de marmolina
 finish: Mate natural
 leadTime: 4–6 dias
