@@ -3,7 +3,7 @@ name: Los tres monos sabios
 collection: Colección III — Relieves
 category: Relieves
 material: Marmolina
-price: 0
+price: 67000
 shortDescription: Relieve de marmolina
 dimensions: 15cm
 finish: Mate natural
