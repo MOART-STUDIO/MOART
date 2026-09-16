@@ -3,7 +3,7 @@ name: Jarrón geométrico multifacetado
 collection: Colección III — Relieves
 category: Relieves
 material: Marmolina
-price: 0
+price: 26000
 shortDescription: Relieve de marmolina
 finish: Mate natural
 leadTime: 4–6 dias
