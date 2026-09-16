@@ -3,7 +3,7 @@ name: Piezas de ajedrez decorativas
 collection: Colección III — Relieves
 category: Relieves
 material: Marmolina
-price: 0
+price: 150000
 shortDescription: Relieve de marmolina
 dimensions: Reina 37cm, Torre 35cm, Caballo 33cm
 finish: Mate natural
