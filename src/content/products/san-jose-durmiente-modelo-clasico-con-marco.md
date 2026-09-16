@@ -3,7 +3,7 @@ name: San José durmiente (Modelo clásico con marco)
 collection: Colección I — Figuras
 category: Figuras
 material: Marmolina
-price: 0
+price: 51000
 shortDescription: Figura de marmolina
 dimensions: 21cm
 finish: Mate natural
