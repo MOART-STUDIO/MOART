@@ -3,7 +3,7 @@ name: Busto de caballo clásico
 collection: Colección I — Figuras
 category: Figuras
 material: Marmolina
-price: 0
+price: 77000
 shortDescription: Figura de marmolina
 finish: Mate natural
 leadTime: 4–6 dias
