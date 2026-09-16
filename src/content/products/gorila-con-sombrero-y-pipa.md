@@ -3,7 +3,7 @@ name: "Gorila con sombrero y pipa "
 collection: Colección I — Figuras
 category: Figuras
 material: Marmolina
-price: 60000
+price: 102000
 shortDescription: Figura de marmolina
 dimensions: 40 × 30 × 50 cm
 finish: Mate natural
