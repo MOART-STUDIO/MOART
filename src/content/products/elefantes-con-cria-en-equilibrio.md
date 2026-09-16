@@ -3,7 +3,7 @@ name: Elefantes con cría en equilibrio
 collection: Colección I — Figuras
 category: Figuras
 material: Marmolina
-price: 0
+price: 24000
 shortDescription: Figura de marmolina
 finish: Mate natural
 leadTime: 4–6 dias
