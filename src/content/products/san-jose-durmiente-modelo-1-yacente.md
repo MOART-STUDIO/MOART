@@ -3,7 +3,7 @@ name: San José durmiente (Modelo 1 yacente)
 collection: Colección I — Figuras
 category: Figuras
 material: Marmolina
-price: 0
+price: 15000
 shortDescription: Figura de marmolina
 dimensions: 10cm
 finish: Mate natural
