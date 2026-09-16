@@ -3,7 +3,7 @@ name: Figura de cerdito sentado
 collection: Colección I — Figuras
 category: Figuras
 material: Marmolina
-price: 0
+price: 60000
 shortDescription: Figura de marmolina
 dimensions: 23cm
 finish: Mate natural
