@@ -1,9 +1,9 @@
 ---
-name: Figura de Jesús orando
+name: Figura de Jesús meditando
 collection: Colección I — Figuras
 category: Figuras
 material: Marmolina
-price: 0
+price: 43000
 shortDescription: Figura de marmolina
 dimensions: 25cm
 finish: Mate natural
