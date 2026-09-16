@@ -3,7 +3,7 @@ name: Set de figuras abstractas "Los tres sabios modernos"
 collection: Colección I — Figuras
 category: Figuras
 material: Marmolina
-price: 0
+price: 30000
 shortDescription: Figura de marmolina
 finish: Mate natural
 leadTime: 4–6 dias
