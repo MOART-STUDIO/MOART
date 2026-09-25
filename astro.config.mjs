@@ -6,7 +6,7 @@ export default defineConfig({
   vite: {
     plugins: [tailwindcss()],
   },
-  base: process.env.BASE ?? "/MOART",
-  site: process.env.SITE ?? "https://andreanicky0509.github.io/MOART/",
+  base: process.env.BASE ?? "/",
+  site: process.env.SITE ?? "https://moarthouse.com/",
   integrations: [sitemap()],
 });
