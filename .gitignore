@@ -1,6 +1,11 @@
 # Dependencias
 node_modules/
 
+# El proyecto usa pnpm. Si alguien corre npm install, este lockfile
+# desincronizado rompe el --frozen-lockfile de GitHub Actions.
+package-lock.json
+yarn.lock
+
 # Build de Astro
 dist/
 .astro/

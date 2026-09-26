@@ -15,6 +15,22 @@ export const SITE_LANG = "es";
 export const SITE_COUNTRY = "CO";
 export const SITE_CURRENCY = "COP";
 
+/**
+ * Path base del despliegue, sin barra final. Vacío en la raíz, `/repo` en
+ * GitHub Pages cuando el sitio vive en un subdirectorio.
+ */
+export const BASE_PATH = import.meta.env.BASE_URL.replace(/\/$/, "");
+
+/**
+ * Construye una URL pública a partir de una ruta de la app (`/catalog`),
+ * anteponiendo el `base` del despliegue.
+ * No usar con rutas que ya incluyan el base, como `Astro.url.pathname`.
+ */
+export function siteUrl(path = "/"): string {
+  const suffix = path === "/" || path === "" ? "" : path.startsWith("/") ? path : `/${path}`;
+  return `${SITE_ORIGIN}${BASE_PATH}${suffix}`;
+}
+
 export const SITE_DESCRIPTION =
   "MOART es un estudio taller en Medellín, Colombia, que crea esculturas de autor en marmolina. Figuras, navidad y relieves moldeados y pulidos a mano, siempre por encargo.";
 

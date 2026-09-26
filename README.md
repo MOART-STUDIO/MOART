@@ -34,21 +34,23 @@ MOART es un tema editorial y sereno de Astro para un pequeño estudio taller de 
 
 ## Getting Started
 
+Este proyecto usa **pnpm** como único gestor de paquetes. No hay `package-lock.json` a propósito: mantener dos lockfiles desincronizados rompe el `--frozen-lockfile` de CI.
+
 ```bash
-npm install
-npm run dev
+pnpm install
+pnpm dev
 ```
 
 Build for production:
 
 ```bash
-npm run build
+pnpm build
 ```
 
 Preview the production build locally:
 
 ```bash
-npm run preview
+pnpm preview
 ```
 
 ## Theme Setup
@@ -56,7 +58,7 @@ npm run preview
 Update the production URL before publishing:
 
 ```bash
-SITE=https://your-domain.com npm run build
+SITE=https://your-domain.com pnpm build
 ```
 
 The configured `site` value is used for canonical URLs, sitemap generation, and `robots.txt`. The default preview site is `https://moart.example/`.
@@ -193,15 +195,17 @@ Ambos se generan desde `src/data/llms.ts`, que lee el contenido real del catálo
 ### Verificación
 
 ```bash
-npx astro check   # tipos y warnings
-npm run build     # genera dist/ con robots.txt, sitemaps y llms.txt
+pnpm exec astro check   # tipos y warnings
+pnpm build              # genera dist/ con robots.txt, sitemap.xml y llms.txt
 ```
 
 Revisa en Search Console el sitemap y valida el JSON-LD de una página de producto antes de publicar.
 
 ## Deployment
 
-The theme builds to static files in `dist/` and deploys to any static host. Set `SITE` to the production origin during deployment so SEO URLs are correct. `SITE=https://moarthouse.com npm run build`
+The theme builds to static files in `dist/` and deploys to any static host. Set `SITE` to the production origin during deployment so SEO URLs are correct. `SITE=https://moarthouse.com pnpm build`
+
+Si el sitio se despliega en un subdirectorio (por ejemplo un project site de GitHub Pages en `/moart`), pasa también `BASE=/moart`. Canonical, sitemap, `robots.txt` y `llms.txt` respetan ese valor automáticamente.
 
 ## License
 

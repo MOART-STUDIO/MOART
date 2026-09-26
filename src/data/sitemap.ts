@@ -1,8 +1,7 @@
 import { readdirSync, statSync } from "node:fs";
 import { join } from "node:path";
-import { getProducts } from "@/data/products.js";
-import { SITE_ORIGIN } from "@/data/site.js";
-import { CATALOG_PAGE_SIZE } from "@/data/products.js";
+import { CATALOG_PAGE_SIZE, getProducts } from "@/data/products.js";
+import { siteUrl } from "@/data/site.js";
 
 /** Páginas que nunca deben entrar al sitemap. */
 export const SITEMAP_EXCLUDED = ["/cart", "/404", "/robots.txt", "/sitemap.xml"];
@@ -62,7 +61,7 @@ export async function buildSitemapEntries(): Promise<SitemapEntry[]> {
   for (const page of STATIC_PAGES) {
     if (SITEMAP_EXCLUDED.includes(page.path)) continue;
     entries.push({
-      loc: `${SITE_ORIGIN}${page.path === "/" ? "" : page.path}`,
+      loc: siteUrl(page.path),
       priority: page.priority,
       changefreq: page.changefreq,
     });
@@ -74,7 +73,7 @@ export async function buildSitemapEntries(): Promise<SitemapEntry[]> {
     const signals = pageSignals(path);
     if (!signals) continue;
     entries.push({
-      loc: `${SITE_ORIGIN}${path}`,
+      loc: siteUrl(path),
       priority: signals.priority,
       changefreq: signals.changefreq,
     });
@@ -86,7 +85,7 @@ export async function buildSitemapEntries(): Promise<SitemapEntry[]> {
     if (!signals) continue;
     const lastmod = lastmods.get(path);
     entries.push({
-      loc: `${SITE_ORIGIN}${path}`,
+      loc: siteUrl(path),
       lastmod: lastmod?.toISOString(),
       priority: signals.priority,
       changefreq: signals.changefreq,

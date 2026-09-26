@@ -4,6 +4,7 @@
   "private": true,
   "homepage": "https://atelier-ko-topaz.vercel.app/",
   "type": "module",
+  "packageManager": "pnpm@11.24.0",
   "scripts": {
     "dev": "astro dev",
     "build": "astro build",

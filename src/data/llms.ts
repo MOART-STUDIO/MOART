@@ -5,7 +5,7 @@ import {
   LOCATION,
   SITE_DESCRIPTION,
   SITE_NAME,
-  SITE_ORIGIN,
+  siteUrl,
 } from "@/data/site.js";
 
 /** Datos derivados del catálogo que se repiten en `llms.txt` y `llms-full.txt`. */
@@ -54,7 +54,7 @@ export function renderLlmsTxt({
         "",
         inCategory
           .map((product) => {
-            const url = `${SITE_ORIGIN}/products/${product.slug}`;
+            const url = siteUrl(`/products/${product.slug}`);
             return `- [${product.name}](${url}): ${product.shortDescription}. ${product.material}, ${product.dimensions}. ${formatPrice(product.price)}. ${product.leadTime}.`;
           })
           .join("\n"),
@@ -72,19 +72,19 @@ ${BUSINESS_FACTS.join("\n")}
 
 ## Páginas principales
 
-- [Inicio](${SITE_ORIGIN}/): presentación del estudio y piezas destacadas.
-- [Catálogo](${SITE_ORIGIN}/catalog): todas las esculturas, con filtros por categoría y material.
-- [Nosotros](${SITE_ORIGIN}/about): el taller, el proceso y los materiales.
+- [Inicio](${siteUrl("/")}): presentación del estudio y piezas destacadas.
+- [Catálogo](${siteUrl("/catalog")}): todas las esculturas, con filtros por categoría y material.
+- [Nosotros](${siteUrl("/about")}): el taller, el proceso y los materiales.
 
 ## Cómo pedir una pieza
 
-1. En [el catálogo](${SITE_ORIGIN}/catalog) filtra por categoría o material.
+1. En [el catálogo](${siteUrl("/catalog")}) filtra por categoría o material.
 2. Abre la ficha de la pieza para ver dimensiones, acabado, plazo y precio.
 3. Añádela a la colección y envía el pedido por WhatsApp al ${CONTACT.phone} o por email a ${CONTACT.email}, indicando la referencia (el nombre de la pieza).
 
 ## Contenido completo
 
-- [llms-full.txt](${SITE_ORIGIN}/llms-full.txt): texto íntegro de la web y ficha completa de cada pieza, pensado para responder preguntas con detalle.
+- [llms-full.txt](${siteUrl("/llms-full.txt")}): texto íntegro de la web y ficha completa de cada pieza, pensado para responder preguntas con detalle.
 
 ## Notas
 
@@ -97,13 +97,13 @@ ${catalogByCategory}
 ## Contacto
 
 - Email: ${CONTACT.email}
-- WhatsApp: ${CONTACT.phone} (${SITE_ORIGIN} es el canal web principal)
+- WhatsApp: ${CONTACT.phone} (${siteUrl("/")} es el canal web principal)
 `;
 }
 
 export function renderLlmsFullTxt({ products }: Awaited<ReturnType<typeof buildCatalogFacts>>) {
   const sections = products.map((product) => {
-    const url = `${SITE_ORIGIN}/products/${product.slug}`;
+    const url = siteUrl(`/products/${product.slug}`);
     return [
       `## ${product.name}`,
       "",
@@ -125,7 +125,7 @@ export function renderLlmsFullTxt({ products }: Awaited<ReturnType<typeof buildC
 
 > ${SITE_DESCRIPTION}
 
-Este documento contiene el contenido completo de ${SITE_ORIGIN} en texto plano, pensado para que un modelo de lenguaje pueda citarlo sin raspar la web.
+Este documento contiene el contenido completo de ${siteUrl("/")} en texto plano, pensado para que un modelo de lenguaje pueda citarlo sin raspar la web.
 
 ## Sobre el estudio
 
@@ -185,6 +185,6 @@ Sí, se coordinan visitas en Medellín, Colombia.
 - **WhatsApp:** ${CONTACT.phone}
 - **Instagram:** https://www.instagram.com/moart.house17/
 - **Facebook:** https://www.facebook.com/moart.house17/
-- **Web:** ${SITE_ORIGIN}
+- **Web:** ${siteUrl("/")}
 `;
 }

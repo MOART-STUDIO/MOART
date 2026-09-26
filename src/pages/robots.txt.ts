@@ -1,22 +1,19 @@
-import { SITE_ORIGIN } from "@/data/site.js";
+import { BASE_PATH, siteUrl } from "@/data/site.js";
 
 /** Páginas privadas o sin valor de búsqueda. */
 const DISALLOWED = ["/cart", "/404", "/api/"];
 
-function host() {
-  const origin = SITE_ORIGIN.replace(/\/$/, "");
-  return { origin, sitemap: `${origin}/sitemap.xml` };
-}
+/** `Disallow` admite rutas, no URLs absolutas: se antepone el base del despliegue. */
+const disallowPath = (path: string) => `${BASE_PATH}${path}`;
 
 const lines = (robots: string[], allowAi: boolean) => {
-  const { sitemap } = host();
   const block = [
     ...robots.map((rule) => `User-agent: ${rule}`),
     "Allow: /",
-    ...DISALLOWED.map((path) => `Disallow: ${path}`),
+    ...DISALLOWED.map((path) => `Disallow: ${disallowPath(path)}`),
     ...(allowAi ? [] : ["Disallow: /"]),
     "",
-    `Sitemap: ${sitemap}`,
+    `Sitemap: ${siteUrl("/sitemap.xml")}`,
   ];
   return block.join("\n");
 };
