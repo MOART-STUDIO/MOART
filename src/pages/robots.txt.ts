@@ -5,23 +5,18 @@ const DISALLOWED = ["/cart", "/404", "/api/"];
 
 function host() {
   const origin = SITE_ORIGIN.replace(/\/$/, "");
-  return {
-    origin,
-    sitemapIndex: `${origin}/sitemap-index.xml`,
-    sitemapChunk: `${origin}/sitemap-0.xml`,
-  };
+  return { origin, sitemap: `${origin}/sitemap.xml` };
 }
 
 const lines = (robots: string[], allowAi: boolean) => {
-  const { sitemapIndex, sitemapChunk } = host();
+  const { sitemap } = host();
   const block = [
     ...robots.map((rule) => `User-agent: ${rule}`),
     "Allow: /",
     ...DISALLOWED.map((path) => `Disallow: ${path}`),
     ...(allowAi ? [] : ["Disallow: /"]),
     "",
-    `Sitemap: ${sitemapIndex}`,
-    `Sitemap: ${sitemapChunk}`,
+    `Sitemap: ${sitemap}`,
   ];
   return block.join("\n");
 };

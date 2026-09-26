@@ -168,13 +168,16 @@ No añadas schema que no se corresponda con contenido visible en la misma págin
 
 ### Sitemap
 
-`@astrojs/sitemap` se configura en `astro.config.mjs` con `filter` y `serialize`:
+El sitemap se genera con un endpoint propio, `src/pages/sitemap.xml.ts`, que escribe un único `dist/sitemap.xml`. No se usa `@astrojs/sitemap` porque esa integración siempre produce `sitemap-index.xml` + `sitemap-N.xml` y nunca un `sitemap.xml` plano. Con menos de 50.000 URLs un solo archivo es lo correcto y más simple para los buscadores.
 
-- Excluye `/cart`, `/404` y los endpoints de texto (`/robots.txt`, `/llms.txt`, `/llms-full.txt`).
-- Asigna `priority` y `changefreq` por tipo de página: home `1.0/weekly`, catálogo `0.9/weekly`, paginación `0.4/weekly`, productos `0.8/monthly`, about `0.6/yearly`.
-- Añade `lastmod` real por producto leyendo el mtime de su markdown.
+La lógica vive en `src/data/sitemap.ts`:
 
-Genera `sitemap-index.xml` y `sitemap-0.xml`. Si añades rutas, inclúyelas en `EXCLUDED` si no son páginas indexables.
+- `STATIC_PAGES` — rutas estáticas con su `priority` y `changefreq`. **Si añades una página nueva, añádela aquí.**
+- `SITEMAP_EXCLUDED` — rutas que nunca se incluyen (`/cart`, `/404`, `/robots.txt`, `/sitemap.xml`).
+- Los productos se derivan de la colección de contenido y la paginación del catálogo se calcula con `CATALOG_PAGE_SIZE`, así que no hay listas de URLs que mantener a mano.
+- `lastmod` por producto sale del mtime de su markdown.
+
+Señales actuales: home `1.0/weekly`, catálogo `0.9/weekly`, paginación `0.4/weekly`, productos `0.8/monthly`, about `0.6/yearly`.
 
 ### robots.txt
 
@@ -185,7 +188,7 @@ Genera `sitemap-index.xml` y `sitemap-0.xml`. Si añades rutas, inclúyelas en `
 - `/llms.txt` — resumen del negocio, páginas principales, catálogo agrupado por categoría y notas operativas.
 - `/llms-full.txt` — texto íntegro: sobre el estudio, proceso, ficha completa de cada pieza y preguntas frecuentes.
 
-Ambos se generan desde `src/data/llms.ts`, que lee el contenido real del catálogo, así que se mantienen sincronizados con los productos. La narrativa (políticas, plazos, material) está en `BUSINESS_FACTS` y en las secciones de texto de ese archivo: actualízalas si cambian las condiciones del negocio.
+Ambos se generan desde `src/data/llms.ts`, que lee el contenido real del catálogo, así que se mantienen sincronizados con los productos. La narrativa (políticas, plazos, material) está en `BUSINESS_FACTS` y en las secciones de texto de ese archivo: actualízalas si cambian las condiciones del negocio. No los enlaces desde el pie de página: los LLMs los encuentran por la URL convencional y por el `Sitemap:` de `robots.txt`.
 
 ### Verificación
 

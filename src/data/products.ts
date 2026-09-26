@@ -9,6 +9,9 @@ export type Product = Omit<ProductEntry["data"], "images"> & {
   images: ImageMetadata[];
 };
 
+/** Piezas por página en el catálogo. Compartido con el sitemap. */
+export const CATALOG_PAGE_SIZE = 48;
+
 function slugFromEntry(entry: ProductEntry): string {
   return entry.id.replace(/\.(md|mdx)$/, "");
 }

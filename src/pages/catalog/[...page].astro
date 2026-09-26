@@ -1,7 +1,11 @@
 ---
 import ProductCard from "@/components/ProductCard.astro";
 import BaseLayout from "@/layouts/BaseLayout.astro";
-import { getProductFilters, getProducts } from "@/data/products.js";
+import {
+  CATALOG_PAGE_SIZE,
+  getProductFilters,
+  getProducts,
+} from "@/data/products.js";
 import { withBase } from "@/utils/paths.js";
 import {
   breadcrumbSchema,
@@ -12,7 +16,7 @@ import {
 
 export async function getStaticPaths({ paginate }: any) {
   const allProducts = await getProducts();
-  return paginate(allProducts, { pageSize: 48 });
+  return paginate(allProducts, { pageSize: CATALOG_PAGE_SIZE });
 }
 
 const { page } = Astro.props as any;
