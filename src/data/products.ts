@@ -1,6 +1,7 @@
 import { getCollection, type CollectionEntry } from "astro:content";
 import type { ImageMetadata } from "astro";
 import { resolveProductImages } from "./product-images.js";
+import { CATALOG_PAGE_SIZE } from "./sitemap.mjs";
 
 type ProductEntry = CollectionEntry<"products">;
 export type Product = Omit<ProductEntry["data"], "images"> & {
@@ -9,8 +10,7 @@ export type Product = Omit<ProductEntry["data"], "images"> & {
   images: ImageMetadata[];
 };
 
-/** Piezas por página en el catálogo. Compartido con el sitemap. */
-export const CATALOG_PAGE_SIZE = 48;
+export { CATALOG_PAGE_SIZE };
 
 function slugFromEntry(entry: ProductEntry): string {
   return entry.id.replace(/\.(md|mdx)$/, "");
