@@ -8,7 +8,7 @@ packagingPrice: 3000
 shortDescription: Relieve de marmolina
 dimensions: 40 × 30 × 50 cm
 finish: Mate natural
-leadTime: 4–6 semanas
+leadTime: 4–6 dias
 images:
   - /assets/catalogo/catalogo-04.jpg
 order: 4

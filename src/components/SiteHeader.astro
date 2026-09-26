@@ -1,6 +1,6 @@
 ---
 import { Image } from "astro:assets";
-import { formatPrice, getProduct, getProducts } from "@/data/products.js";
+import { formatPrice, getProducts } from "@/data/products.js";
 import { withBase } from "@/utils/paths.js";
 import Logo from "@/assets/MOART-LOGO-provisional.svg";
 
@@ -23,9 +23,7 @@ const socialLinks = [
   { href: "https://wa.me/573127701638", label: "WhatsApp" },
 ];
 
-const featuredProduct =
-  (await getProduct("pieza-01")) ?? (await getProducts())[0];
- const products = await getProducts();
+const products = await getProducts();
 ---
 
 <nav
@@ -38,9 +36,9 @@ const featuredProduct =
     <a
       href={withBase("/")}
       class="font-serif text-xl italic tracking-tight"
-      aria-label="Inicio de MOART"
+      aria-label="MOART — Inicio"
     >
-      <Image src={Logo} alt="test" class="w-25" />
+      <Image src={Logo} alt="MOART — esculturas de autor en marmolina" class="w-25" />
     </a>
     <div class="hidden items-center gap-8 text-sm md:flex">
       {

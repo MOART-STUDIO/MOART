@@ -8,7 +8,7 @@ packagingPrice: 5000
 shortDescription: Figura de marmolina
 dimensions: 40 × 30 × 50 cm
 finish: Mate natural
-leadTime: 4–6 semanas
+leadTime: 4–6 dias
 images:
   - /assets/catalogo/catalogo-09.jpg
 order: 9

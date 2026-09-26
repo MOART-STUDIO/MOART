@@ -1,14 +1,39 @@
 ---
 import BaseLayout from "@/layouts/BaseLayout.astro";
 import { withBase } from "@/utils/paths.js";
+import { breadcrumbSchema, graph, organizationSchema } from "@/utils/seo.js";
+import { SITE_NAME, SITE_ORIGIN } from "@/data/site.js";
+
 const handsImg = withBase("/imagenes catalogo/marmolinaliquid.jpeg");
 const workshopImg = withBase("/imagenes catalogo/moartaller.jpg");
+
+const schema = graph(
+  organizationSchema(),
+  {
+    "@type": "AboutPage",
+    "@id": `${SITE_ORIGIN}/about#webpage`,
+    url: `${SITE_ORIGIN}/about`,
+    name: `${SITE_NAME} — Nuestro taller`,
+    description:
+      "Un pequeño estudio taller en Medellín, Colombia, que crea esculturas en marmolina a mano desde 2021.",
+    inLanguage: "es-CO",
+    isPartOf: { "@id": `${SITE_ORIGIN}/#website` },
+    about: { "@id": `${SITE_ORIGIN}/#organization` },
+    mainEntity: { "@id": `${SITE_ORIGIN}/#organization` },
+  },
+  breadcrumbSchema([
+    { name: "Inicio", href: "/" },
+    { name: "Nosotros", href: "/about" },
+  ]),
+);
 ---
 
 <BaseLayout
-  title="Nosotros — MOART"
-  description="Un pequeño taller en España que crea esculturas de marmolina a mano. Lentas y pensadas para durar generaciones."
+  title="Nosotros — el taller de MOART en Medellín"
+  description="MOART es un estudio taller en Medellín, Colombia, que diseña y moldea esculturas de marmolina a mano desde 2021. Un catálogo pequeño, pensado para durar generaciones."
   image={workshopImg}
+  imageAlt="Taller de MOART en Medellín con herramientas manuales y una escultura en marmolina a medio terminar"
+  schema={schema}
 >
   <main id="main-content">
   <section class="mx-auto max-w-screen-xl px-6 pb-16 pt-20 md:pb-24 md:pt-28">
@@ -37,12 +62,12 @@ const workshopImg = withBase("/imagenes catalogo/moartaller.jpg");
 
   <section class="mx-auto mt-24 grid max-w-screen-xl gap-10 px-6 md:mt-32 md:grid-cols-12 md:gap-16">
     <div class="md:col-span-5">
-      <p class="mb-6 text-[11px] uppercase tracking-[0.3em] text-faded">Desde 2018</p>
+      <p class="mb-6 text-[11px] uppercase tracking-[0.3em] text-faded">Desde 2021</p>
       <h2 class="text-balance font-serif text-3xl leading-[1.02] md:text-5xl">Empezamos con una escultura.</h2>
     </div>
     <div class="space-y-6 leading-relaxed text-faded md:col-span-6 md:col-start-7">
       <p>
-        MOART nació en un taller prestado, con una sola figura de marmolina modelada a mano — la pieza que dio origen a Aurora. Siete años después seguimos trabajando solo con marmolina y seguimos creando por encargo.
+        MOART nació en un taller prestado, con una sola figura de marmolina modelada a mano — la pieza que dio origen a Aurora. Cuatro años después seguimos trabajando solo con marmolina y seguimos creando por encargo.
       </p>
       <p>
         El catálogo es pequeño a propósito. Preferimos saber bien pocas cosas a ofrecer cien que no dominamos.
@@ -118,10 +143,10 @@ const workshopImg = withBase("/imagenes catalogo/moartaller.jpg");
     <div class="grid grid-cols-2 gap-x-6 gap-y-10 md:grid-cols-4">
       {
         [
-          { n: "2018", l: "Fundado" },
+          { n: "2021", l: "Fundado" },
           { n: "2", l: "Artistas" },
-          { n: "3", l: "Materias" },
-          { n: "4–10", l: "Semanas de plazo" },
+          { n: "1", l: "Materia" },
+          { n: "1–7", l: "Días de plazo" },
         ].map((stat) => (
           <div class="space-y-2">
             <p class="font-serif text-4xl tabular-nums md:text-5xl">{stat.n}</p>
@@ -147,7 +172,7 @@ const workshopImg = withBase("/imagenes catalogo/moartaller.jpg");
           Ver el catálogo →
         </a>
         <a
-          href="mailto:estudio@moart.es"
+          href="mailto:moart.house17@gmail.com"
           class="inline-flex items-center justify-center gap-3 rounded-full px-7 py-4 text-[11px] font-medium uppercase tracking-[0.2em] text-ink ring-1 ring-line transition-colors hover:bg-paper"
         >
           Escríbenos

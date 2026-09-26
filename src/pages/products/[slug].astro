@@ -4,6 +4,15 @@ import ProductCard from "@/components/ProductCard.astro";
 import BaseLayout from "@/layouts/BaseLayout.astro";
 import { formatPrice, getProducts, getRelated } from "@/data/products.js";
 import { withBase } from "@/utils/paths.js";
+import {
+  breadcrumbSchema,
+  graph,
+  itemListSchema,
+  organizationSchema,
+  productSchema,
+  resolveImageUrl,
+  truncate,
+} from "@/utils/seo.js";
 
 export async function getStaticPaths() {
   const products = await getProducts();
@@ -14,16 +23,39 @@ export async function getStaticPaths() {
 }
 
 const { product, related } = Astro.props;
-const productUrl = new URL(
-  `/products/${product.slug}`,
-  Astro.site ?? Astro.url.origin,
-).href;
+
+const description = truncate(
+  `${product.name} en ${product.material.toLowerCase()}. ${product.shortDescription}. ${product.description}`.trim(),
+  158,
+);
+
+const ogImage = await resolveImageUrl(product.images[0]);
+const galleryUrls = await Promise.all(
+  product.images.map((image) => resolveImageUrl(image)),
+);
+const productImages = [
+  ...new Set([ogImage, ...galleryUrls].filter(Boolean)),
+] as string[];
+
+const schema = graph(
+  organizationSchema(),
+  breadcrumbSchema([
+    { name: "Inicio", href: "/" },
+    { name: "Catálogo", href: "/catalog" },
+    { name: product.name, href: `/products/${product.slug}` },
+  ]),
+  productSchema(product, productImages),
+  itemListSchema(related, `Piezas relacionadas con ${product.name}`, `/products/${product.slug}`),
+);
 ---
 
 <BaseLayout
-  title={`${product.name} — MOART`}
-  description={product.description.slice(0, 155)}
+  title={`${product.name} en marmolina`}
+  description={description}
   image={product.images[0]}
+  imageAlt={`${product.name} — escultura de ${product.material.toLowerCase()} hecha a mano`}
+  ogType="product"
+  schema={schema}
 >
   <main id="main-content">
     <div class="mx-auto max-w-screen-xl px-6 pt-8">
@@ -151,7 +183,7 @@ const productUrl = new URL(
           </button>
 
           <p class="text-[11px] uppercase tracking-widest text-faded">
-            Entrega con cuidado en la UE · Resto del mundo bajo petición
+            Entrega con cuidado en Colombia · Resto del mundo bajo petición
           </p>
         </div>
       </section>
@@ -173,33 +205,6 @@ const productUrl = new URL(
         </div>
       </section>
     </div>
-
-    <script
-      is:inline
-      type="application/ld+json"
-      set:html={JSON.stringify({
-        "@context": "https://schema.org",
-        "@type": "Product",
-        name: product.name,
-        description: product.description,
-        image: product.images.map(
-          (image) => new URL(image.src, Astro.url.origin).href,
-        ),
-        brand: {
-          "@type": "Brand",
-          name: "MOART",
-        },
-        material: product.material,
-        url: productUrl,
-        offers: {
-          "@type": "Offer",
-          priceCurrency: "COP",
-          price: product.price,
-          availability: "https://schema.org/PreOrder",
-          url: productUrl,
-        },
-      })}
-    />
 
     <div
       aria-live="polite"

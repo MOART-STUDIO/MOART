@@ -5,20 +5,37 @@ import BaseLayout from "@/layouts/BaseLayout.astro";
 import ProductCard from "@/components/ProductCard.astro";
 import { formatPrice, getProducts } from "@/data/products.js";
 import { withBase } from "@/utils/paths.js";
+import {
+  breadcrumbSchema,
+  graph,
+  itemListSchema,
+  organizationSchema,
+  websiteSchema,
+} from "@/utils/seo.js";
 
 const products = await getProducts();
 const featured = ["pieza-46", "pieza-02", "pieza-03"]
   .map((slug) => products.find((product) => product.slug === slug))
-  .filter(Boolean);
+  .filter((product): product is NonNullable<typeof product> => Boolean(product));
 const solo = products.find((product) => product.slug === "pieza-46") ?? products[0];
+
+const schema = graph(
+  organizationSchema(),
+  websiteSchema(),
+  breadcrumbSchema([{ name: "Inicio", href: "/" }]),
+  itemListSchema(featured, "Piezas destacadas de MOART", "/"),
+);
 ---
 
 <BaseLayout
-  title="MOART — Arte de autor en marmolina"
-  description="Catálogo de esculturas en marmolina: figuras, navidad y relieves moldeados y pulidos a mano. Piezas únicas hechas por encargo en Colombia."
+  title="MOART — Esculturas de autor en marmolina en Medellín"
+  description="Esculturas de marmolina moldeadas y pulidas a mano en Medellín, Colombia. Figuras, decoración natal y relieves hechos por encargo. Piezas únicas."
+  image={ImagenFondo}
+  imageAlt="Escultura de MOART en marmolina blanca en el taller de Medellín"
+  schema={schema}
 >
   <main id="main-content">
-    <h1 class="sr-only">MOART — esculturas de autor en marmolina</h1>
+    <h1 class="sr-only">MOART — esculturas de autor en marmolina hechas a mano en Medellín, Colombia</h1>
     <section class="relative overflow-hidden bg-base">
       
 

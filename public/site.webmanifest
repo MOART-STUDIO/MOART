@@ -1,0 +1,31 @@
+{
+  "name": "MOART — Esculturas de autor en marmolina",
+  "short_name": "MOART",
+  "description": "Estudio taller en Medellín, Colombia, que crea esculturas de autor en marmolina moldeadas y pulidas a mano, siempre por encargo.",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "lang": "es-CO",
+  "background_color": "#f8f7f4",
+  "theme_color": "#f8f7f4",
+  "categories": ["shopping", "lifestyle", "arts"],
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    },
+    {
+      "src": "/favicon-32.png",
+      "sizes": "32x32",
+      "type": "image/png"
+    },
+    {
+      "src": "/apple-touch-icon.png",
+      "sizes": "180x180",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ]
+}

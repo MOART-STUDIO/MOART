@@ -125,18 +125,80 @@ Use `public/` only for files that should be served as-is.
 
 ## SEO
 
-- Unique page titles and descriptions
-- Canonical URLs
-- Open Graph and Twitter card metadata
-- Sitemap generation via `@astrojs/sitemap`
-- Dynamic `robots.txt`
-- Product JSON-LD on product pages
-- Organization JSON-LD on the homepage
-- `noindex` on cart and 404
+### Configuración central
+
+Todo el SEO se apoya en `src/data/site.ts`: nombre, dominio, contacto, redes, ubicación, moneda y descripción por defecto. Cámbialo una vez y se actualiza en todas las páginas, en el JSON-LD, en `robots.txt` y en `llms.txt`.
+
+El origen canónico es `site` en `astro.config.mjs`, que lee la variable de entorno `SITE`. Sin ella, el sitio asume `https://moarthouse.com/`.
+
+### Por página
+
+`src/components/Seo.astro` se inyecta desde `BaseLayout.astro`. Cada página pasa su propio `title` y `description`:
+
+```astro
+<BaseLayout
+  title="Arcangel San Miguel Premium en marmolina"
+  description="Arcangel en marmolina blanca, moldeado y pulido a mano en Medellín."
+  image={product.images[0]}
+  imageAlt="Arcangel San Miguel Premium visto de frente"
+  ogType="product"
+  schema={schema}
+  noindex={false}
+>
+```
+
+- El título se normaliza a `Página — MOART` y se recorta la descripción a 160 caracteres sin cortar palabras.
+- La imagen OG se optimiza a 1200×630 y se usan sus dimensiones reales en `og:image:width/height`.
+- Sin `image` se cae a `/og-default.jpg`.
+- `noindex` se aplica en `/cart` y `/404`.
+
+### Datos estructurados
+
+Los nodos JSON-LD se agrupan en un único `@graph` por página y se referencian por `@id` (`/#organization`, `/#website`). Los builders viven en `src/utils/seo.ts`:
+
+| Builder | Dónde se usa |
+| --- | --- |
+| `organizationSchema()` | Todas las páginas — `LocalBusiness` con dirección, contacto y `sameAs` |
+| `websiteSchema()` | Home — `WebSite` con `publisher` |
+| `breadcrumbSchema()` | Todas menos la home — `BreadcrumbList` |
+| `productSchema()` | `/products/[slug]` — `Product` con `Offer`, `shippingDetails` y `hasMerchantReturnPolicy` |
+| `itemListSchema()` | Home y catálogo — `ItemList` |
+
+No añadas schema que no se corresponda con contenido visible en la misma página.
+
+### Sitemap
+
+`@astrojs/sitemap` se configura en `astro.config.mjs` con `filter` y `serialize`:
+
+- Excluye `/cart`, `/404` y los endpoints de texto (`/robots.txt`, `/llms.txt`, `/llms-full.txt`).
+- Asigna `priority` y `changefreq` por tipo de página: home `1.0/weekly`, catálogo `0.9/weekly`, paginación `0.4/weekly`, productos `0.8/monthly`, about `0.6/yearly`.
+- Añade `lastmod` real por producto leyendo el mtime de su markdown.
+
+Genera `sitemap-index.xml` y `sitemap-0.xml`. Si añades rutas, inclúyelas en `EXCLUDED` si no son páginas indexables.
+
+### robots.txt
+
+`src/pages/robots.txt.ts` emite bloques explícitos para `GPTBot`, `OAI-SearchBot`, `ChatGPT-User`, `ClaudeBot`, `PerplexityBot`, `Google-Extended`, `Applebot`, `CCBot`, `Bingbot` y otros. Si en algún momento quieres bloquear los bots de IA, cambia el `allowAi` a `false` en cada llamada: los bloques pasarán a `Disallow: /`.
+
+### Archivos para LLMs
+
+- `/llms.txt` — resumen del negocio, páginas principales, catálogo agrupado por categoría y notas operativas.
+- `/llms-full.txt` — texto íntegro: sobre el estudio, proceso, ficha completa de cada pieza y preguntas frecuentes.
+
+Ambos se generan desde `src/data/llms.ts`, que lee el contenido real del catálogo, así que se mantienen sincronizados con los productos. La narrativa (políticas, plazos, material) está en `BUSINESS_FACTS` y en las secciones de texto de ese archivo: actualízalas si cambian las condiciones del negocio.
+
+### Verificación
+
+```bash
+npx astro check   # tipos y warnings
+npm run build     # genera dist/ con robots.txt, sitemaps y llms.txt
+```
+
+Revisa en Search Console el sitemap y valida el JSON-LD de una página de producto antes de publicar.
 
 ## Deployment
 
-The theme builds to static files in `dist/` and deploys to any static host. Set `SITE` to the production origin during deployment so SEO URLs are correct.
+The theme builds to static files in `dist/` and deploys to any static host. Set `SITE` to the production origin during deployment so SEO URLs are correct. `SITE=https://moarthouse.com npm run build`
 
 ## License
 
@@ -146,3 +208,5 @@ This project is licensed under the [MIT License](LICENSE).
 
 - Replace the demo product copy, prices, and images with your own catalogue before publishing.
 - The newsletter and checkout flows are design previews; connect them to your preferred backend or form provider if needed.
+- `LocalBusiness` omits `streetAddress` on purpose. Add it in `src/data/site.ts` once you have a public shop address; never invent one.
+- The address, phone and email in `src/data/site.ts` appear in the JSON-LD and in `llms.txt`. Keep them in sync with the real business data.

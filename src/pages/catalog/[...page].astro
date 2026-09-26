@@ -3,6 +3,12 @@ import ProductCard from "@/components/ProductCard.astro";
 import BaseLayout from "@/layouts/BaseLayout.astro";
 import { getProductFilters, getProducts } from "@/data/products.js";
 import { withBase } from "@/utils/paths.js";
+import {
+  breadcrumbSchema,
+  graph,
+  itemListSchema,
+  organizationSchema,
+} from "@/utils/seo.js";
 
 export async function getStaticPaths({ paginate }: any) {
   const allProducts = await getProducts();
@@ -13,13 +19,31 @@ const { page } = Astro.props as any;
 const products = page.data as any[];
 const { categories: allCategories, materials: allMaterials } = getProductFilters(products);
 const isFirstPage = page.currentPage === 1;
-const title = isFirstPage ? "El catálogo — MOART" : `El catálogo — Página ${page.currentPage} — MOART`;
+const title = isFirstPage
+  ? "Catálogo de esculturas en marmolina"
+  : `Catálogo de esculturas en marmolina — página ${page.currentPage} de ${page.lastPage}`;
 const description = isFirstPage
-  ? "Explora todas las esculturas del catálogo de MOART. Filtra por categoría y material — marmolina moldeada a mano. Hechas por encargo."
-  : `Catálogo MOART — Página ${page.currentPage} de ${page.lastPage}. Piezas ${page.start + 1} a ${page.end + 1} de ${page.total}.`;
+  ? `Las ${page.total} esculturas en marmolina del catálogo de MOART: figuras, decoración natal y relieves, moldeados y pulidos a mano en Medellín. Filtra por categoría y material.`
+  : `Catálogo MOART, página ${page.currentPage} de ${page.lastPage}: piezas ${page.start + 1} a ${page.end + 1} de ${page.total} esculturas en marmolina hechas por encargo.`;
+
+const breadcrumbs = [
+  { name: "Inicio", href: "/" },
+  ...(isFirstPage ? [] : [{ name: "Catálogo", href: "/catalog" }]),
+  ...(isFirstPage ? [] : [{ name: `Página ${page.currentPage}`, href: page.url.current }]),
+];
+
+const schema = graph(
+  organizationSchema(),
+  breadcrumbSchema(breadcrumbs),
+  itemListSchema(
+    products,
+    isFirstPage ? "Catálogo de esculturas MOART" : `Catálogo MOART — página ${page.currentPage}`,
+    page.url.current,
+  ),
+);
 ---
 
-<BaseLayout title={title} description={description}>
+<BaseLayout title={title} description={description} schema={schema}>
   <main id="main-content">
     <section class="mx-auto max-w-screen-xl px-6 pb-12 pt-20 md:pb-16 md:pt-28">
       <p class="mb-6 flex items-center gap-3 text-[11px] uppercase tracking-[0.3em] text-faded">
@@ -27,10 +51,31 @@ const description = isFirstPage
         El catálogo
       </p>
       <h1 class="max-w-[18ch] text-balance font-serif text-5xl leading-[0.95] md:text-6xl">
-        Cada pieza, <span class="italic text-accent">hecha por encargo.</span>
+        {
+          isFirstPage ? (
+            <>
+              Cada pieza, <span class="italic text-accent">hecha por encargo.</span>
+            </>
+          ) : (
+            <>
+              Cada pieza, <span class="italic text-accent">hecha por encargo.</span>
+              <span class="block text-2xl text-faded md:text-3xl">
+                Página {page.currentPage} de {page.lastPage}
+              </span>
+            </>
+          )
+        }
       </h1>
       <p class="mt-6 max-w-[52ch] leading-relaxed text-faded">
-        Un catálogo pequeño y sereno — seis piezas, tres familias. Filtra para encontrar la que habita tu espacio y comienza el encargo.
+        {isFirstPage ? (
+          <>
+            Un catálogo sereno de {page.total} piezas en {allCategories.length} familias — figuras, decoración natal y relieves. Todas moldeadas y pulidas a mano. Filtra por categoría y material para encontrar la que habita tu espacio y comienza el encargo.
+          </>
+        ) : (
+          <>
+            Mostrando las piezas {page.start + 1} a {page.end + 1} de {page.total} esculturas en marmolina. <a href={withBase("/catalog")} class="underline underline-offset-4 hover:text-ink">Vuelve a la primera página</a> para ver el catálogo completo y filtrar por categoría y material.
+          </>
+        )}
       </p>
     </section>
 
