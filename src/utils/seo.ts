@@ -115,7 +115,7 @@ export function organizationSchema() {
       "@type": "Offer",
       itemOffered: {
         "@type": "Service",
-        name: "Escultura de autor en marmolina por encargo",
+        name: "Esculturas en marmolina por encargo",
         description:
           "Modelado, moldeado y pulido a mano de esculturas únicas en marmolina blanca.",
       },
