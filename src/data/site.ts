@@ -32,13 +32,13 @@ export function siteUrl(path = "/"): string {
 }
 
 export const SITE_DESCRIPTION =
-  "MOART es un estudio taller en Medellín, Colombia, que crea esculturas de autor en marmolina. Figuras, navidad y relieves moldeados y pulidos a mano, siempre por encargo.";
+  "MOART es un estudio taller en Medellín, Colombia, que crea figuras de marmolina. Esculturas, navidad y relieves moldeados y pulidos a mano, siempre por encargo.";
 
 export const SITE_SHORT_DESCRIPTION =
-  "Esculturas de autor en marmolina moldeadas y pulidas a mano en Medellín, Colombia.";
+  "Figuras de marmolina moldeadas y pulidas a mano en Medellín, Colombia.";
 
 /** Título por defecto. Cada página debe sobreescribirlo con uno único y descriptivo. */
-export const SITE_DEFAULT_TITLE = "MOART — Esculturas de autor en marmolina";
+export const SITE_DEFAULT_TITLE = "MOART — Figuras de marmolina";
 
 export const SITE_LOGO = "/favicon.svg";
 export const SITE_OG_IMAGE = "/og-default.jpg";
