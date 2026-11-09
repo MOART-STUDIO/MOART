@@ -3,7 +3,7 @@ name: Pareja de pájaros cantores
 collection: Colección III — Relieves
 category: Relieves
 material: Marmolina
-price: 43000
+price: 45000
 shortDescription: Relieve de marmolina
 dimensions: 10cm
 finish: Mate natural
