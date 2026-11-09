@@ -3,7 +3,7 @@ name: San José durmiente (Modelo 3 Tapa)
 collection: Colección III — Relieves
 category: Relieves
 material: Marmolina
-price: 0
+price: 60000
 shortDescription: Relieve de marmolina
 dimensions: 21cm
 finish: Mate natural
