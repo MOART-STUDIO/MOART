@@ -3,7 +3,7 @@ name: Pareja de gnomos de jardín
 collection: Colección II — Navidad
 category: Navidad
 material: Marmolina
-price: 0
+price: 46000
 shortDescription: Pieza de navidad en marmolina
 dimensions: Masculino 30cm  Femenino 20cm
 finish: Mate natural
