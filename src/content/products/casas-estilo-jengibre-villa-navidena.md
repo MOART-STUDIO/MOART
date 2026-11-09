@@ -3,7 +3,7 @@ name: Casas estilo jengibre (Villa navideña)
 collection: Colección II — Navidad
 category: Navidad
 material: Marmolina
-price: 0
+price: 102000
 shortDescription: Pieza de navidad en marmolina
 dimensions: Grande 30cm Pequeña 10cm
 finish: Mate natural
