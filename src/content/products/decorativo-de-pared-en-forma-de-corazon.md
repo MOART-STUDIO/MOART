@@ -3,7 +3,7 @@ name: Decorativo de pared en forma de corazón
 collection: Colección III — Relieves
 category: Relieves
 material: Marmolina
-price: 0
+price: 24000
 shortDescription: Relieve de marmolina
 dimensions: 17cm
 finish: Mate natural
