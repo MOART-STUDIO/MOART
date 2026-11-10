@@ -3,7 +3,7 @@ name: Divino Niño Jesús
 collection: Colección I — Figuras
 category: Figuras
 material: Marmolina
-price: 0
+price: 46000
 shortDescription: Figura de marmolina
 dimensions: 30cm
 finish: Mate natural
