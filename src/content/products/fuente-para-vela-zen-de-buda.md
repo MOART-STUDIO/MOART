@@ -3,7 +3,7 @@ name: Fuente para vela zen de Buda
 collection: Colección I — Figuras
 category: Figuras
 material: Marmolina
-price: 13000
+price: 23000
 shortDescription: Figura de marmolina
 dimensions: 13cm
 finish: Mate natural
