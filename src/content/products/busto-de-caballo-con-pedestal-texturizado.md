@@ -3,9 +3,10 @@ name: Busto de caballo con pedestal texturizado
 collection: Colección III — Relieves
 category: Relieves
 material: Marmolina
-price: 0
+price: 45000
 shortDescription: Relieve de marmolina
 dimensions: 26cm
+finish: Mate natural
 leadTime: 4–6 dias
 images:
   - /assets/catalogo/1a797989-a2d8-162d-0a01-e659e30345ed-1.jpg
